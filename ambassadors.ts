@@ -1,7 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_AMBASSADORS_DATA — seeded placeholder. */
+/** MOCK_AMBASSADORS_DATA - seeded placeholder. */
 export interface Ambassador {
   id: string;
   name: string;

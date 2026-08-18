@@ -11,7 +11,7 @@ Every dashboard reads through `src/lib/data-source.ts`'s `isMockMode()`. When Su
 
 ## How mock data is built
 
-All mock generators live in `src/lib/mock-data/*.ts`, are named `MOCK_*` or documented as such in a header comment, and use a **seeded pseudo-random generator** (`src/lib/mock-data/seed.ts`) so numbers are stable across reloads — not fabricated fresh each time, and not implying real historical trends.
+All mock generators live in `src/lib/mock-data/*.ts`, are named `MOCK_*` or documented as such in a header comment, and use a **seeded pseudo-random generator** (`src/lib/mock-data/seed.ts`) so numbers are stable across reloads - not fabricated fresh each time, and not implying real historical trends.
 
 ## Turning mock mode off
 
@@ -21,6 +21,6 @@ All mock generators live in `src/lib/mock-data/*.ts`, are named `MOCK_*` or docu
 
 ## Never do this
 
-- Don't hardcode a "real-looking" number directly into a component to make a demo look more impressive — always route through the mock-data layer so it stays labeled.
+- Don't hardcode a "real-looking" number directly into a component to make a demo look more impressive - always route through the mock-data layer so it stays labeled.
 - Don't remove the `MockDataBanner` from a dashboard that's still on mock data, even temporarily for a screenshot.
-- Don't present GitHub Analytics, Blockchain Analytics, or Wallet Analytics numbers as current unless they're wired to a live API call (GitHub REST API, Celo RPC) — these are especially easy to mistake for live data since the shapes are realistic.
+- Don't present GitHub Analytics, Blockchain Analytics, or Wallet Analytics numbers as current unless they're wired to a live API call (GitHub REST API, Celo RPC) - these are especially easy to mistake for live data since the shapes are realistic.

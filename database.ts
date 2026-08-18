@@ -1,7 +1,7 @@
 /**
  * Minimal typed schema matching supabase/migrations/0001_init.sql.
  * Regenerate with `supabase gen types typescript` once the project
- * is live to keep this in sync — see /docs/DATABASE.md.
+ * is live to keep this in sync - see /docs/DATABASE.md.
  */
 export interface Database {
   public: {
@@ -28,7 +28,7 @@ export interface Database {
           type: "inflow" | "outflow";
           category: string;
           amount_usd: number;
-          currency: "USD" | "cUSD" | "CELO";
+          currency: "USD" | "USDm" | "CELO";
           description: string;
           tx_hash: string | null;
           occurred_at: string;

@@ -36,7 +36,7 @@ export default function PartnershipsDashboard() {
         <CardHeader>
           <div>
             <CardTitle>Partnerships</CardTitle>
-            <CardDescription>Including FreClean — a planned future partner, currently in discussion, not yet formalized</CardDescription>
+            <CardDescription>Including FreClean - a planned future partner, currently in discussion, not yet formalized</CardDescription>
           </div>
         </CardHeader>
         <CardContent><DataTable title="Partnerships" data={getPartnerships()} columns={columns} exportFilename="celoht-partnerships" /></CardContent>

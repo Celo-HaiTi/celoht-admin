@@ -1,7 +1,7 @@
 import { seededRandom, seededRange, MOCK_LABEL_MONTHS } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_EXPENSES_DATA — seeded placeholder. */
+/** MOCK_EXPENSES_DATA - seeded placeholder. */
 export interface Expense {
   id: string;
   category: string;

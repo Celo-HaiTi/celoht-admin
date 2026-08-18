@@ -48,7 +48,7 @@ export interface AdminUser {
 export interface KPI {
   label: string;
   value: number;
-  format: "usd" | "number" | "percent" | "cusd";
+  format: "usd" | "number" | "percent" | "usdm";
   delta?: number;
   deltaLabel?: string;
   trend?: number[];

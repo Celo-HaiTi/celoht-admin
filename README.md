@@ -8,7 +8,7 @@ CeloHT is a community-governed financial-inclusion and blockchain-education init
 
 ## ⚠️ Mock data by default
 
-This repo ships with **no live backend connected**. Every number you see on first run is seeded placeholder data, clearly labeled `MOCK_*` in source and flagged with a banner in the UI. This is intentional — see [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) before connecting real financial or program data, and never present a mock-mode screenshot as a live report.
+This repo ships with **no live backend connected**. Every number you see on first run is seeded placeholder data, clearly labeled `MOCK_*` in source and flagged with a banner in the UI. This is intentional - see [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) before connecting real financial or program data, and never present a mock-mode screenshot as a live report.
 
 ## Status
 
@@ -50,15 +50,15 @@ Access follows CeloHT's real governance chain see [`docs/AUTHENTICATION.md`](doc
 
 ## Documentation
 
-Full index: [`docs/README.md`](docs/README.md). Start with [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) — every other doc assumes it.
+Full index: [`docs/README.md`](docs/README.md). Start with [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) - every other doc assumes it.
 
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — folder structure and module boundaries
-- [`docs/DATABASE.md`](docs/DATABASE.md) — Supabase schema and RLS
-- [`docs/AUTHENTICATION.md`](docs/AUTHENTICATION.md) — auth flows and RBAC
-- [`docs/BUILD_STATUS.md`](docs/BUILD_STATUS.md) — which dashboards are built vs. mocked
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) - folder structure and module boundaries
+- [`docs/DATABASE.md`](docs/DATABASE.md) - Supabase schema and RLS
+- [`docs/AUTHENTICATION.md`](docs/AUTHENTICATION.md) - auth flows and RBAC
+- [`docs/BUILD_STATUS.md`](docs/BUILD_STATUS.md) - which dashboards are built vs. mocked
 - **24 dashboard deep dives** (one per dashboard: purpose, data model, RLS, roadmap) see [`docs/README.md`](docs/README.md) for the full list, organized the same way as the sidebar
-- [`SECURITY.md`](SECURITY.md) — reporting vulnerabilities
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to propose changes
+- [`SECURITY.md`](SECURITY.md) - reporting vulnerabilities
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) - how to propose changes
 
 ## License
 

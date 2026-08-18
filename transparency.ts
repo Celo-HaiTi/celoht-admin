@@ -1,6 +1,6 @@
 import { seededRandom, seededRange } from "./seed";
 
-/** MOCK_TRANSPARENCY_DATA — seeded placeholder. This mirrors what a
+/** MOCK_TRANSPARENCY_DATA - seeded placeholder. This mirrors what a
  *  public transparency report would show; wire to real Supabase views
  *  before publishing externally. */
 export function getFundAllocation() {

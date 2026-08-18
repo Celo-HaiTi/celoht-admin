@@ -4,7 +4,7 @@ import { AlertTriangle } from "lucide-react";
  * Renders whenever isMockMode() is true. This is deliberately impossible
  * to miss: every figure below it is seeded placeholder data, not a live
  * feed from Supabase, GitHub, or the Celo chain. Do not remove this
- * without wiring the dashboard to a real data source — see
+ * without wiring the dashboard to a real data source - see
  * /docs/DATA_SOURCES.md.
  */
 export function MockDataBanner() {
@@ -15,7 +15,7 @@ export function MockDataBanner() {
         <span className="font-semibold">Mock data mode.</span> Figures on this page are seeded
         placeholders (labeled <code className="tabular text-xs">MOCK_*</code> in source), not
         live financials or chain data. Connect Supabase in{" "}
-        <code className="text-xs">.env.local</code> to switch to real data — see{" "}
+        <code className="text-xs">.env.local</code> to switch to real data - see{" "}
         <code className="text-xs">docs/DATA_SOURCES.md</code>.
       </p>
     </div>

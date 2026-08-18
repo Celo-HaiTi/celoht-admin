@@ -1,7 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_COMMUNITY_DATA — seeded placeholder. */
+/** MOCK_COMMUNITY_DATA - seeded placeholder. */
 export interface RegionCommunity {
   id: string;
   country: string;

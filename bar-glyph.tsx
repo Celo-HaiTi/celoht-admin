@@ -1,4 +1,4 @@
-/** The recurring signature glyph — the ascending-bar arrow from the CeloHT
+/** The recurring signature glyph - the ascending-bar arrow from the CeloHT
  *  mark, redrawn as a minimal watermark. Appears bottom-right on every KPI
  *  card as a quiet, consistent unit of measurement across the platform. */
 export function BarGlyph({ className }: { className?: string }) {

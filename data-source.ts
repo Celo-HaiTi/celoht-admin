@@ -3,7 +3,7 @@
  *
  * MOCK MODE is the default until real Supabase credentials are provided.
  * This is intentional: financial and impact dashboards must never present
- * fabricated numbers as if they were live — see /docs/DATA_SOURCES.md.
+ * fabricated numbers as if they were live - see /docs/DATA_SOURCES.md.
  * Every mock value is generated deterministically (seeded), labeled at
  * the source, and the UI renders a persistent "Mock Data" banner whenever
  * this flag is true.

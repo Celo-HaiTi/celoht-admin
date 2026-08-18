@@ -1,7 +1,7 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { BarGlyph } from "@/components/dashboard/bar-glyph";
-import { formatNumber, formatPercent, formatUSD, formatCUSD } from "@/lib/utils/format";
+import { formatNumber, formatPercent, formatUSD, formatUSDm } from "@/lib/utils/format";
 import { cn } from "@/lib/utils/cn";
 import type { KPI } from "@/types";
 
@@ -9,8 +9,8 @@ function formatValue(kpi: KPI): string {
   switch (kpi.format) {
     case "usd":
       return formatUSD(kpi.value, { compact: kpi.value >= 100_000 });
-    case "cusd":
-      return formatCUSD(kpi.value);
+    case "usdm":
+      return formatUSDm(kpi.value);
     case "percent":
       return `${kpi.value.toFixed(1)}%`;
     default:

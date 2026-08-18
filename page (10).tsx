@@ -37,7 +37,7 @@ export default function GithubAnalyticsDashboard() {
         <CardHeader>
           <div>
             <CardTitle>Repositories</CardTitle>
-            <CardDescription>github.com/Celo-HaiTi — connect GITHUB_TOKEN for live stats</CardDescription>
+            <CardDescription>github.com/Celo-HaiTi - connect GITHUB_TOKEN for live stats</CardDescription>
           </div>
         </CardHeader>
         <CardContent><DataTable title="GitHub Repos" data={getRepoStats()} columns={columns} exportFilename="celoht-github-analytics" /></CardContent>

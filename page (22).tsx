@@ -34,7 +34,7 @@ export default function AgentNetworkDashboard() {
         {getAgentNetworkKpis().map((kpi) => <KpiCard key={kpi.label} kpi={kpi} />)}
       </div>
       <Card className="mt-6">
-        <CardHeader><div><CardTitle>Agents</CardTitle><CardDescription>Cash↔cUSD conversion, wallet onboarding, community liquidity</CardDescription></div></CardHeader>
+        <CardHeader><div><CardTitle>Agents</CardTitle><CardDescription>Cash↔USDm conversion, wallet onboarding, community liquidity</CardDescription></div></CardHeader>
         <CardContent><DataTable title="Agent Network" data={getAgents()} columns={columns} exportFilename="celoht-agent-network" /></CardContent>
       </Card>
     </div>

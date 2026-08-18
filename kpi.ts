@@ -1,6 +1,6 @@
 import { seededRandom, seededRange } from "./seed";
 
-/** MOCK_KPI_DATA — seeded placeholder org-wide KPI targets vs. actuals,
+/** MOCK_KPI_DATA - seeded placeholder org-wide KPI targets vs. actuals,
  *  one row per pillar metric that leadership tracks. */
 export interface KpiTarget {
   id: string;

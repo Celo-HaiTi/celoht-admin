@@ -1,7 +1,7 @@
 import { seededRandom, seededRange, MOCK_LABEL_MONTHS } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_REVENUE_DATA — seeded placeholder. CeloHT's real model: ecosystem
+/** MOCK_REVENUE_DATA - seeded placeholder. CeloHT's real model: ecosystem
  *  grants, strategic partnerships, GitHub Sponsors now; agent network
  *  service fees become a revenue source from Phase 3+. */
 export interface RevenueEntry {

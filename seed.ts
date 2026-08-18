@@ -1,6 +1,6 @@
 /**
  * Deterministic pseudo-random generator (mulberry32) so mock data is
- * stable across renders and builds — no hydration mismatches, and
+ * stable across renders and builds - no hydration mismatches, and
  * numbers don't reshuffle every reload.
  */
 export function seededRandom(seed: number) {

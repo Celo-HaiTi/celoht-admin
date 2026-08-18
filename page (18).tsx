@@ -36,7 +36,7 @@ export default function ReforestationDashboard() {
         <CardHeader>
           <div>
             <CardTitle>Planting sites</CardTitle>
-            <CardDescription>Reforestation is in design and pilot phase — figures reflect pilot scale, not full operation</CardDescription>
+            <CardDescription>Reforestation is in design and pilot phase - figures reflect pilot scale, not full operation</CardDescription>
           </div>
         </CardHeader>
         <CardContent><DataTable title="Reforestation" data={getPlantingSites()} columns={columns} exportFilename="celoht-reforestation" /></CardContent>

@@ -20,7 +20,7 @@ export default function ImpactDashboard() {
         <CardHeader>
           <div>
             <CardTitle>People reached by pillar</CardTitle>
-            <CardDescription>Education · Agent Network · Reforestation — measurable outcomes, not projections</CardDescription>
+            <CardDescription>Education · Agent Network · Reforestation - measurable outcomes, not projections</CardDescription>
           </div>
         </CardHeader>
         <CardContent><CategoryBarChart data={getImpactByPillar()} /></CardContent>

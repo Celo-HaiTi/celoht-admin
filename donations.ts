@@ -1,12 +1,12 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_DONATIONS_DATA — seeded placeholder. */
+/** MOCK_DONATIONS_DATA - seeded placeholder. */
 export interface Donation {
   id: string;
   donor: string;
   amountUsd: number;
-  channel: "Crypto (cUSD)" | "Fiat" | "In-kind";
+  channel: "Crypto (USDm)" | "Fiat" | "In-kind";
   date: string;
   recurring: boolean;
 }
@@ -22,7 +22,7 @@ export function getDonationKpis(): KPI[] {
 
 export function getDonations(): Donation[] {
   const rand = seededRandom(15);
-  const channels: Donation["channel"][] = ["Crypto (cUSD)", "Fiat", "In-kind"];
+  const channels: Donation["channel"][] = ["Crypto (USDm)", "Fiat", "In-kind"];
   const rows: Donation[] = [];
   for (let i = 0; i < 28; i++) {
     const day = seededRange(rand, 1, 28);

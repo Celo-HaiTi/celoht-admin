@@ -1,4 +1,4 @@
--- Row Level Security — maps directly to CeloHT's governance chain:
+-- Row Level Security - maps directly to CeloHT's governance chain:
 -- Foundation Director → Maintainer Council → Community Contributors.
 -- Everyone authenticated can read; writes are role-gated per table.
 

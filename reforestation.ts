@@ -1,8 +1,8 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_REFORESTATION_DATA — seeded placeholder. CeloHT's reforestation
- *  pillar is still in design/pilot phase — figures here represent pilot
+/** MOCK_REFORESTATION_DATA - seeded placeholder. CeloHT's reforestation
+ *  pillar is still in design/pilot phase - figures here represent pilot
  *  scale, not full operation. Don't let this dashboard's polish imply
  *  the program is further along than it is; see docs/DATA_SOURCES.md. */
 export interface PlantingSite {

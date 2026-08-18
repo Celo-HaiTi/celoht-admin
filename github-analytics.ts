@@ -1,9 +1,9 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_GITHUB_ANALYTICS_DATA — seeded placeholder. A real build calls
+/** MOCK_GITHUB_ANALYTICS_DATA - seeded placeholder. A real build calls
  *  the GitHub REST API (repos, stats/contributors, pulls, issues) server-
- *  side using GITHUB_TOKEN + GITHUB_ORG from .env — see .env.example. */
+ *  side using GITHUB_TOKEN + GITHUB_ORG from .env - see .env.example. */
 export interface RepoStat {
   id: string;
   repo: string;

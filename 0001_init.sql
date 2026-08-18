@@ -1,9 +1,9 @@
--- CeloHT Admin — Initial schema
+-- CeloHT Admin - Initial schema
 -- Run via: supabase db push  (after `supabase link` to your project)
 
 create type public.user_role as enum ('director', 'council', 'contributor', 'viewer');
 create type public.tx_type as enum ('inflow', 'outflow');
-create type public.tx_currency as enum ('USD', 'cUSD', 'CELO');
+create type public.tx_currency as enum ('USD', 'USDm', 'CELO');
 create type public.proposal_status as enum ('draft', 'active', 'passed', 'rejected');
 
 -- Mirrors auth.users 1:1, adds CeloHT governance role.

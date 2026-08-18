@@ -1,7 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_AGENT_NETWORK_DATA — seeded placeholder. */
+/** MOCK_AGENT_NETWORK_DATA - seeded placeholder. */
 export interface Agent {
   id: string;
   name: string;
@@ -17,7 +17,7 @@ export function getAgentNetworkKpis(): KPI[] {
   return [
     { label: "Active Agents", value: 37, format: "number", delta: 12.1 },
     { label: "Wallets Onboarded", value: 2140, format: "number", delta: 8.4 },
-    { label: "Cash↔cUSD Volume (30d)", value: 28900, format: "usd", delta: 6.7 },
+    { label: "Cash↔USDm Volume (30d)", value: 28900, format: "usd", delta: 6.7 },
     { label: "Avg. Transaction Size", value: 14.30, format: "usd" },
   ];
 }

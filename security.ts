@@ -1,7 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_SECURITY_DATA — seeded placeholder security posture. */
+/** MOCK_SECURITY_DATA - seeded placeholder security posture. */
 export interface SecurityAlert {
   id: string;
   title: string;

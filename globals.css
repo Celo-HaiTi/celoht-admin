@@ -2,22 +2,22 @@
 @import "tailwindcss-animate";
 
 /*
-  CeloHT Admin — Design Tokens
+  CeloHT Admin - Design Tokens
   -----------------------------------------------------------------
   Palette is derived directly from the CeloHT mark: the deep navy "C"
   and the gold ascending-bar arrow. Financial and data-table figures
-  use IBM Plex Mono so columns of numbers actually align — precision
+  use IBM Plex Mono so columns of numbers actually align - precision
   as a design statement, not just a utility choice. Fraunces is used
   sparingly for section headers to keep the CeloHT brand voice (used
   on the public site) present even in an operational tool.
 
   Signature element: the "ascending bar" motif from the logo reappears
-  as a subtle corner glyph on KPI cards and as the loading indicator —
+  as a subtle corner glyph on KPI cards and as the loading indicator -
   the mark isn't just a logo, it's a recurring unit of measurement.
 */
 
 @theme {
-  /* Core navy scale — the CeloHT "C" */
+  /* Core navy scale - the CeloHT "C" */
   --color-navy-950: #050e1c;
   --color-navy-900: #0a1a30;
   --color-navy-850: #0f2340;
@@ -28,7 +28,7 @@
   --color-navy-100: #dbe6f0;
   --color-navy-50: #f2f6fa;
 
-  /* Gold scale — the ascending arrow */
+  /* Gold scale - the ascending arrow */
   --color-gold-600: #b9791a;
   --color-gold-500: #d9941f;
   --color-gold-400: #f2ab34;
@@ -113,7 +113,7 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Ascending-bar watermark glyph — the recurring signature unit */
+/* Ascending-bar watermark glyph - the recurring signature unit */
 .bar-glyph {
   position: absolute;
   bottom: 0.5rem;

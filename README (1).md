@@ -1,12 +1,12 @@
-# CeloHT Admin — Documentation
+# CeloHT Admin - Documentation
 
-This is the documentation index. Start with **Data Sources** if you read nothing else — it's the policy every other document assumes.
+This is the documentation index. Start with **Data Sources** if you read nothing else - it's the policy every other document assumes.
 
 ## Start here
 
 | Doc | What it covers |
 |---|---|
-| [`DATA_SOURCES.md`](DATA_SOURCES.md) | Mock-vs-real data policy — read this before demoing or connecting anything |
+| [`DATA_SOURCES.md`](DATA_SOURCES.md) | Mock-vs-real data policy - read this before demoing or connecting anything |
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | Folder structure, module boundaries, how to add a dashboard |
 | [`DATABASE.md`](DATABASE.md) | Supabase schema and Row Level Security |
 | [`AUTHENTICATION.md`](AUTHENTICATION.md) | Auth flows (magic link, Valora stub) and RBAC |
@@ -23,7 +23,7 @@ Every one of the 24 dashboards has its own doc: purpose, exact data model, Row L
 - [`IMPACT_DASHBOARD.md`](IMPACT_DASHBOARD.md)
 
 ### Finance
-- [`TREASURY_DASHBOARD.md`](TREASURY_DASHBOARD.md) — the reference example; read this one first
+- [`TREASURY_DASHBOARD.md`](TREASURY_DASHBOARD.md) - the reference example; read this one first
 - [`DONATIONS_DASHBOARD.md`](DONATIONS_DASHBOARD.md)
 - [`GRANTS_DASHBOARD.md`](GRANTS_DASHBOARD.md)
 - [`REVENUE_DASHBOARD.md`](REVENUE_DASHBOARD.md)
@@ -34,7 +34,7 @@ Every one of the 24 dashboards has its own doc: purpose, exact data model, Row L
 - [`COMMUNITY_DASHBOARD.md`](COMMUNITY_DASHBOARD.md)
 - [`VOLUNTEERS_DASHBOARD.md`](VOLUNTEERS_DASHBOARD.md)
 - [`AMBASSADORS_DASHBOARD.md`](AMBASSADORS_DASHBOARD.md)
-- [`PARTNERSHIPS_DASHBOARD.md`](PARTNERSHIPS_DASHBOARD.md) — includes the FreClean status framing
+- [`PARTNERSHIPS_DASHBOARD.md`](PARTNERSHIPS_DASHBOARD.md) - includes the FreClean status framing
 - [`REFORESTATION_DASHBOARD.md`](REFORESTATION_DASHBOARD.md)
 - [`AGENT_NETWORK_DASHBOARD.md`](AGENT_NETWORK_DASHBOARD.md)
 
@@ -47,9 +47,9 @@ Every one of the 24 dashboards has its own doc: purpose, exact data model, Row L
 ### Governance
 - [`GOVERNANCE_DASHBOARD.md`](GOVERNANCE_DASHBOARD.md)
 - [`RISK_DASHBOARD.md`](RISK_DASHBOARD.md)
-- [`AUDIT_DASHBOARD.md`](AUDIT_DASHBOARD.md) — access is restricted to Council/Director, unlike every other dashboard
+- [`AUDIT_DASHBOARD.md`](AUDIT_DASHBOARD.md) - access is restricted to Council/Director, unlike every other dashboard
 - [`REPORTS_DASHBOARD.md`](REPORTS_DASHBOARD.md)
 
 ## The pattern, if you're adding dashboard #25
 
-Every deep-dive doc follows: **Purpose → What it shows → Data model (+ RLS) → Data source → Components used → Roadmap.** Purpose should name who actually reads this page and what decision it helps them make — "so people can see the data" is not a purpose. Roadmap should be concrete enough that someone unfamiliar with the dashboard could pick up item #1 without asking a clarifying question first.
+Every deep-dive doc follows: **Purpose → What it shows → Data model (+ RLS) → Data source → Components used → Roadmap.** Purpose should name who actually reads this page and what decision it helps them make - "so people can see the data" is not a purpose. Roadmap should be concrete enough that someone unfamiliar with the dashboard could pick up item #1 without asking a clarifying question first.

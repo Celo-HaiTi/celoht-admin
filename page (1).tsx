@@ -13,7 +13,7 @@ import { toast } from "sonner";
  *  - Email magic link, for Foundation Director / Maintainer Council members
  *    who manage the platform day to day via Supabase Auth.
  *  - Wallet connect (Valora), for verifying on-chain roles without a
- *    separate password to manage — consistent with CeloHT's Celo-native,
+ *    separate password to manage - consistent with CeloHT's Celo-native,
  *    Valora-only wallet policy.
  * In mock mode (no Supabase configured) both buttons drop straight into
  * the dashboard as a demo viewer so the UI stays reviewable.
@@ -49,7 +49,7 @@ export default function LoginPage() {
 
   function handleWalletConnect() {
     toast.info(
-      "Wallet-based sign-in via Valora is wired to the RBAC layer but requires WalletConnect project credentials — see docs/AUTHENTICATION.md.",
+      "Wallet-based sign-in via Valora is wired to the RBAC layer but requires WalletConnect project credentials - see docs/AUTHENTICATION.md.",
     );
   }
 

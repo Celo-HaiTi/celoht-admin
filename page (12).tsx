@@ -7,14 +7,14 @@ import { Badge } from "@/components/ui/badge";
 import { DataTable } from "@/components/dashboard/data-table";
 import { isMockMode } from "@/lib/data-source";
 import { getBlockchainKpis, getChainTransactions, type ChainTx } from "@/lib/mock-data/blockchain-analytics";
-import { formatCUSD } from "@/lib/utils/format";
+import { formatUSDm } from "@/lib/utils/format";
 
 export const metadata: Metadata = { title: "Blockchain Analytics" };
 
 const columns: ColumnDef<ChainTx, unknown>[] = [
   { accessorKey: "hash", header: "Tx Hash", cell: ({ row }) => <span className="tabular text-xs">{row.original.hash}</span> },
   { accessorKey: "type", header: "Type", cell: ({ row }) => <Badge variant="info">{row.original.type}</Badge> },
-  { accessorKey: "amountCUsd", header: "Amount", cell: ({ row }) => formatCUSD(row.original.amountCUsd) },
+  { accessorKey: "amountUsdm", header: "Amount", cell: ({ row }) => formatUSDm(row.original.amountUsdm) },
   { accessorKey: "blockHeight", header: "Block" },
   { accessorKey: "timestamp", header: "Date" },
 ];
@@ -31,7 +31,7 @@ export default function BlockchainAnalyticsDashboard() {
         <CardHeader>
           <div>
             <CardTitle>Recent transactions</CardTitle>
-            <CardDescription>Placeholder identifiers — connect NEXT_PUBLIC_CELO_RPC_URL for live chain data</CardDescription>
+            <CardDescription>Placeholder identifiers - connect NEXT_PUBLIC_CELO_RPC_URL for live chain data</CardDescription>
           </div>
         </CardHeader>
         <CardContent><DataTable title="Blockchain Transactions" data={getChainTransactions()} columns={columns} exportFilename="celoht-blockchain-tx" /></CardContent>

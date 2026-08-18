@@ -1,7 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 import type { AuditLogEntry, KPI } from "@/types";
 
-/** MOCK_AUDIT_DATA — seeded placeholder. A real build writes to
+/** MOCK_AUDIT_DATA - seeded placeholder. A real build writes to
  *  supabase.audit_log via triggers/service role on every mutating
  *  action, never from the client directly. */
 const ACTIONS = [

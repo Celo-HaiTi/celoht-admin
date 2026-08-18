@@ -1,7 +1,7 @@
 import { seededRandom, seededRange, MOCK_LABEL_MONTHS } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_TREASURY_DATA — seeded placeholder financials. This dashboard
+/** MOCK_TREASURY_DATA - seeded placeholder financials. This dashboard
  *  is the highest-stakes one to leave un-mislabeled: never demo this
  *  to a grant reviewer without first connecting supabase/migrations to
  *  a real treasury_transactions table. See docs/DATA_SOURCES.md. */
@@ -12,7 +12,7 @@ export interface TreasuryTx {
   category: string;
   description: string;
   amountUsd: number;
-  currency: "USD" | "cUSD" | "CELO";
+  currency: "USD" | "USDm" | "CELO";
 }
 
 const CATEGORIES_IN = ["Grant", "Donation", "Sponsorship"];
@@ -23,7 +23,7 @@ export function getTreasuryKpis(): KPI[] {
     { label: "Current Balance", value: 84210, format: "usd", delta: 6.2 },
     { label: "Inflows (90d)", value: 31500, format: "usd", delta: 11.4 },
     { label: "Outflows (90d)", value: 22750, format: "usd", delta: -4.1 },
-    { label: "cUSD Reserve", value: 18400, format: "cusd" },
+    { label: "USDm Reserve", value: 18400, format: "usdm" },
   ];
 }
 
@@ -53,7 +53,7 @@ export function getTreasuryTransactions(): TreasuryTx[] {
         ? "Placeholder grant/donation entry"
         : "Placeholder program expenditure",
       amountUsd: seededRange(rand, 150, 4200),
-      currency: rand() > 0.6 ? "cUSD" : "USD",
+      currency: rand() > 0.6 ? "USDm" : "USD",
     });
   }
   return rows.sort((a, b) => (a.date < b.date ? 1 : -1));

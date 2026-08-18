@@ -12,8 +12,8 @@ export function formatUSD(value: number, opts: { compact?: boolean } = {}): stri
   }).format(value);
 }
 
-export function formatCUSD(value: number): string {
-  return `${new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(value)} cUSD`;
+export function formatUSDm(value: number): string {
+  return `${new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(value)} USDm`;
 }
 
 export function formatNumber(value: number, compact = false): string {

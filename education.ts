@@ -1,7 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_EDUCATION_DATA — seeded placeholder. */
+/** MOCK_EDUCATION_DATA - seeded placeholder. */
 export interface Course {
   id: string;
   title: string;

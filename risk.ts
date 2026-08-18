@@ -1,7 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_RISK_DATA — seeded placeholder risk register. */
+/** MOCK_RISK_DATA - seeded placeholder risk register. */
 export interface RiskItem {
   id: string;
   title: string;

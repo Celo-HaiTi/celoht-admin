@@ -1,6 +1,6 @@
 import { seededRandom, seededRange } from "./seed";
 
-/** MOCK_GOVERNANCE_DATA — seeded placeholder proposals, matching
+/** MOCK_GOVERNANCE_DATA - seeded placeholder proposals, matching
  *  CeloHT's real structure: Foundation Director → Maintainer Council →
  *  Community Contributors. */
 export interface Proposal {
@@ -19,7 +19,7 @@ const TITLES = [
   "Adjust reforestation pilot site selection",
   "Ratify updated Code of Conduct",
   "Approve FreClean partnership scoping",
-  "Council seat rotation — Léogâne region",
+  "Council seat rotation - Léogâne region",
   "Adopt updated Security Policy v1.2",
   "Approve Q4 grant allocation framework",
 ];

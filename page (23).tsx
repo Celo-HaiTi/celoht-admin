@@ -29,7 +29,7 @@ export default function ReportsDashboard() {
         <CardHeader>
           <div>
             <CardTitle>Published reports</CardTitle>
-            <CardDescription>Monthly, quarterly, annual, governance, financial, and impact reports — export via the button on each table</CardDescription>
+            <CardDescription>Monthly, quarterly, annual, governance, financial, and impact reports - export via the button on each table</CardDescription>
           </div>
         </CardHeader>
         <CardContent><DataTable title="Reports" data={getReports()} columns={columns} exportFilename="celoht-reports-index" /></CardContent>

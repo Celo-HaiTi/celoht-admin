@@ -7,14 +7,14 @@ import { DataTable } from "@/components/dashboard/data-table";
 import { TrendChart } from "@/components/charts/trend-chart";
 import { isMockMode } from "@/lib/data-source";
 import { getWalletKpis, getWalletTrend, getWalletCohorts, type WalletCohort } from "@/lib/mock-data/wallet-analytics";
-import { formatCUSD } from "@/lib/utils/format";
+import { formatUSDm } from "@/lib/utils/format";
 
 export const metadata: Metadata = { title: "Wallet Analytics" };
 
 const columns: ColumnDef<WalletCohort, unknown>[] = [
   { accessorKey: "cohort", header: "Cohort" },
   { accessorKey: "wallets", header: "Wallets" },
-  { accessorKey: "avgBalanceCUsd", header: "Avg. Balance", cell: ({ row }) => formatCUSD(row.original.avgBalanceCUsd) },
+  { accessorKey: "avgBalanceUsdm", header: "Avg. Balance", cell: ({ row }) => formatUSDm(row.original.avgBalanceUsdm) },
   { accessorKey: "activeLast30d", header: "Active (30d)" },
 ];
 

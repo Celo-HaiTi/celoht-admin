@@ -3,7 +3,7 @@
 ```
 src/
   app/
-    (auth)/login/          Public auth routes — no sidebar
+    (auth)/login/          Public auth routes - no sidebar
     (dashboard)/dashboard/  All 23 dashboards, one folder per slug
       <slug>/page.tsx
     globals.css             Design tokens (see docs/DESIGN_SYSTEM.md below)
@@ -18,7 +18,7 @@ src/
     supabase/               client.ts (browser), server.ts (RSC/route handlers)
     mock-data/               One file per dashboard domain, seeded + labeled
     utils/                   cn, format, export (CSV/XLSX/PDF)
-    data-source.ts           isMockMode() — the single mock/real switch
+    data-source.ts           isMockMode() - the single mock/real switch
     nav-config.ts             Source of truth for sidebar + build status
   types/                    Shared TS types + Supabase Database typing
   middleware.ts              Session refresh + auth guard on /dashboard/*
@@ -29,10 +29,10 @@ supabase/
 
 ## Adding a new dashboard
 
-1. It's already routed — every slug in `src/lib/nav-config.ts` has a folder under `src/app/(dashboard)/dashboard/`.
+1. It's already routed - every slug in `src/lib/nav-config.ts` has a folder under `src/app/(dashboard)/dashboard/`.
 2. Flip `built: false` → `true` in `nav-config.ts` once you replace `ComingSoon` with a real page.
 3. Add a `src/lib/mock-data/<slug>.ts` seeded generator first (see `docs/DATA_SOURCES.md`), build the UI against that, then wire Supabase later.
-4. Reuse `KpiCard`, `DataTable`, `TrendChart`/`CategoryBarChart`, and `ExportMenu` rather than building bespoke widgets — consistency across 23 dashboards depends on this.
+4. Reuse `KpiCard`, `DataTable`, `TrendChart`/`CategoryBarChart`, and `ExportMenu` rather than building bespoke widgets - consistency across 23 dashboards depends on this.
 
 ## RBAC
 

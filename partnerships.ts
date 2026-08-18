@@ -1,8 +1,8 @@
 import type { KPI } from "@/types";
 
-/** MOCK_PARTNERSHIPS_DATA — seeded placeholder. FreClean is CeloHT's
+/** MOCK_PARTNERSHIPS_DATA - seeded placeholder. FreClean is CeloHT's
  *  real planned future partner (local entrepreneurship/cleaning services);
- *  it's listed here as "In discussion" — not yet a formal partner. */
+ *  it's listed here as "In discussion" - not yet a formal partner. */
 export interface Partnership {
   id: string;
   partner: string;

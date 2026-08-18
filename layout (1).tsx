@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s · CeloHT Admin",
   },
   description:
-    "Operational control center for the CeloHT ecosystem — treasury, governance, education, community, and reforestation management.",
+    "Operational control center for the CeloHT ecosystem - treasury, governance, education, community, and reforestation management.",
   robots: { index: false, follow: false },
 };
 

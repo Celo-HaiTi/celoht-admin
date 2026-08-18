@@ -1,6 +1,6 @@
 import type { KPI } from "@/types";
 
-/** MOCK_IMPACT_DATA — seeded placeholder measurable-impact figures.
+/** MOCK_IMPACT_DATA - seeded placeholder measurable-impact figures.
  *  Per CeloHT's AI content rule: lead with measurable impact, never
  *  investment framing. */
 export function getImpactKpis(): KPI[] {

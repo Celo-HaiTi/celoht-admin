@@ -1,7 +1,7 @@
 import { seededRandom, seededRange, MOCK_LABEL_MONTHS } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_EXECUTIVE_DATA — seeded placeholder. Replace by wiring
+/** MOCK_EXECUTIVE_DATA - seeded placeholder. Replace by wiring
  *  getExecutiveKpis() to Supabase views once real figures exist. */
 export function getExecutiveKpis(): KPI[] {
   return [

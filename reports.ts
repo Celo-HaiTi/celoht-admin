@@ -1,7 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 import type { KPI } from "@/types";
 
-/** MOCK_REPORTS_DATA — seeded placeholder. Real "download" actions should
+/** MOCK_REPORTS_DATA - seeded placeholder. Real "download" actions should
  *  call the same export pipeline (src/lib/utils/export.ts) against live
  *  Supabase queries scoped to the report's period. */
 export interface ReportItem {
