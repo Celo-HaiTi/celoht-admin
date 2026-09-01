@@ -1,69 +1,88 @@
 # CeloHT Admin
 
-Operational control center for the [CeloHT](https://celoht.com) ecosystem treasury, governance, education, community, agent network, and reforestation management in one place.
+Operational admin dashboard for the CeloHT ecosystem. This repository provides the internal UI for treasury, governance, education, community, reforestation, and program reporting workflows.
 
-CeloHT is a community-governed financial-inclusion and blockchain-education initiative built on Celo, headquartered in Léogâne, Haiti. This repository is the internal admin platform used by the Foundation Director, Maintainer Council, and approved Community Contributors to run day-to-day operations transparently.
+CeloHT is a community-governed financial-inclusion and blockchain-education initiative built on Celo. This repository is the admin platform used to review operational data and dashboard views, not a wallet, treasury custody layer, or smart-contract deployment system.
 
-> **CeloHT has no native token, ICO, presale, or staking product.** This platform reports on real program activity (education, agent network, reforestation) and treasury flows it is not an investment product and nothing in it should be read as financial advice or a return projection.
+> CeloHT does not currently define a native token, ICO, presale, or staking product in this repository. This app is a dashboard and operational interface, with mock data enabled by default until real data sources are configured.
 
-## ⚠️ Mock data by default
+## Current status
 
-This repo ships with **no live backend connected**. Every number you see on first run is seeded placeholder data, clearly labeled `MOCK_*` in source and flagged with a banner in the UI. This is intentional - see [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) before connecting real financial or program data, and never present a mock-mode screenshot as a live report.
+This repo has been repaired and verified as a functional Next.js app shell:
 
-## Status
-
-**All 24 dashboards are fully built**  KPIs, charts, and searchable/exportable data tables throughout. See [`docs/BUILD_STATUS.md`](docs/BUILD_STATUS.md) for what "built" means and what real-data wiring is still needed per dashboard.
+- App Router structure restored under `app/`
+- Dashboard route system working for all configured dashboard slugs
+- Default behavior is mock mode until real Supabase variables are set
+- No wallet signing or treasury custody logic is implemented here
+- Verified with actual commands: `npm test`, `npm run build`, and `npm run lint`
 
 ## Tech stack
 
-Next.js 15 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS 4 · shadcn/ui-style components · Framer Motion · Recharts · TanStack Table & Query · React Hook Form + Zod · Zustand · Supabase (Postgres + Auth + RLS) · Celo blockchain integration · Docker · GitHub Actions
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- Vitest + jsdom
+- Supabase SSR/client helpers
+- Recharts
+- TanStack Table
+- Sonner for toasts
 
-## Getting started
+## Quick start
 
 ```bash
 npm install
-cp .env.example .env.local   # leave blank to stay in mock-data mode
+cp .env.example .env.local
 npm run dev
 ```
 
-Open http://localhost:3000 you'll land on the Executive dashboard with mock data. No Supabase project is required to explore the UI.
+If the Supabase environment variables are not configured, the app stays in mock-data mode and shows a mock-data banner instead of claiming live financial or operational numbers.
 
-### Connecting real data
+## Routes
 
-1. Create a project at [supabase.com](https://supabase.com).
-2. `supabase link` then `supabase db push` to apply `supabase/migrations/`.
-3. Fill in `.env.local` with your project URL and anon key.
-4. Restart the dev server the mock-data banner disappears once `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are set (see `src/lib/data-source.ts`).
+- `/` redirects to `/dashboard/executive`
+- `/login` for the auth entry page
+- `/dashboard/[slug]` for the dashboard router
 
-Full walkthrough: [`docs/DATABASE.md`](docs/DATABASE.md).
+## Mock-first behavior
 
-## Governance & roles
+This repo is intentionally not connected to production data by default. All dashboard values are seeded and marked as mock until real connectors are added.
 
-Access follows CeloHT's real governance chain see [`docs/AUTHENTICATION.md`](docs/AUTHENTICATION.md):
+This is important because the app must never present demo or seeded values as if they were live Treasury, wallet, or chain data.
 
-| Role | Maps to |
-|---|---|
-| `director` | Foundation Director |
-| `council` | Maintainer Council |
-| `contributor` | Community Contributor |
-| `viewer` | Read-only access |
+## Required external configuration for live data
 
-## Documentation
+To connect real data, supply environment values in `.env.local` and configure the relevant real services externally:
 
-Full index: [`docs/README.md`](docs/README.md). Start with [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) - every other doc assumes it.
+- Supabase URL and anon key
+- GitHub access for analytics
+- Celo RPC or indexer access for blockchain analytics
+- real wallet/project credentials where wallet flows are added later
 
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) - folder structure and module boundaries
-- [`docs/DATABASE.md`](docs/DATABASE.md) - Supabase schema and RLS
-- [`docs/AUTHENTICATION.md`](docs/AUTHENTICATION.md) - auth flows and RBAC
-- [`docs/BUILD_STATUS.md`](docs/BUILD_STATUS.md) - which dashboards are built vs. mocked
-- **24 dashboard deep dives** (one per dashboard: purpose, data model, RLS, roadmap) see [`docs/README.md`](docs/README.md) for the full list, organized the same way as the sidebar
-- [`SECURITY.md`](SECURITY.md) - reporting vulnerabilities
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) - how to propose changes
+## Documentation index
+
+Root-level documentation currently in this repository:
+
+- [ARCHITECTURE.md](ARCHITECTURE.md)
+- [AUTHENTICATION.md](AUTHENTICATION.md)
+- [BUILD_STATUS.md](BUILD_STATUS.md)
+- [DATABASE.md](DATABASE.md)
+- [DATA_SOURCES.md](DATA_SOURCES.md)
+- [SECURITY.md](SECURITY.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [REPOSITORY_PRODUCT_READINESS.md](REPOSITORY_PRODUCT_READINESS.md)
+- [WALLET_COMPATIBILITY.md](WALLET_COMPATIBILITY.md)
+
+## Product readiness note
+
+This repository is in a verified app-shell and dashboard-building state. It is not a production blockchain deployment, wallet custody implementation, or live treasury backend. It is suitable for mock review and internal dashboard work, while real data integrations remain external and intentionally unconfigured.
 
 ## License
 
-Apache 2.0 see [`LICENSE`](LICENSE).
+Apache 2.0 — see [LICENSE](LICENSE).
 
 ## Contact
 
-contact@celoht.com · [github.com/Celo-HaiTi](https://github.com/Celo-HaiTi) · [celoht.com](https://celoht.com)
+- GitHub: [Celo-HaiTi](https://github.com/Celo-HaiTi)
+- Website: [celoht.com](https://celoht.com)
+- Email: contact@celoht.com
