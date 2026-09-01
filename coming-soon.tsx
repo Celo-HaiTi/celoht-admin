@@ -19,7 +19,7 @@ export function ComingSoon({ label }: { label: string }) {
           This dashboard is scoped in <code className="text-xs">nav-config.ts</code> and scheduled
           for a future build pass - see <code className="text-xs">docs/BUILD_STATUS.md</code> for
           the current order. The layout, RBAC, and data-source pattern from the finished
-          dashboards apply directly once it's built.
+          dashboards apply directly once it&apos;s built.
         </p>
       </CardContent>
     </Card>

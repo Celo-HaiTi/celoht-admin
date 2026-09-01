@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import { KpiCard } from "@/components/dashboard/kpi-card";
 import { MockDataBanner } from "@/components/dashboard/mock-data-banner";

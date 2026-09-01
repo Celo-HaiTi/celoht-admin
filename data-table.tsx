@@ -46,7 +46,7 @@ export function DataTable<T>({ title, data, columns, exportFilename }: DataTable
 
   const exportRows = useMemo(
     () => table.getFilteredRowModel().rows.map((r) => r.original as Record<string, unknown>),
-    [table, globalFilter, sorting],
+    [table],
   );
 
   return (

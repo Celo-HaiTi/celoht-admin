@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import { MockDataBanner } from "@/components/dashboard/mock-data-banner";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";

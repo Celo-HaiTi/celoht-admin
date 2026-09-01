@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import type { ColumnDef } from "@tanstack/react-table";
 import { KpiCard } from "@/components/dashboard/kpi-card";

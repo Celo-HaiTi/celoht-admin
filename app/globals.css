@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/*
+  CeloHT Admin - Design Tokens
+  -----------------------------------------------------------------
+  Palette is derived directly from the CeloHT mark: the deep navy "C"
+  and the gold ascending-bar arrow. Financial and data-table figures
+  use IBM Plex Mono so columns of numbers actually align - precision
+  as a design statement, not just a utility choice. Fraunces is used
+  sparingly for section headers to keep the CeloHT brand voice present.
+*/
+
+@theme {
+  --color-navy-950: #050e1c;
+  --color-navy-900: #0a1a30;
+  --color-navy-850: #0f2340;
+  --color-navy-800: #14304f;
+  --color-navy-700: #1c3f66;
+  --color-navy-600: #275480;
+  --color-navy-500: #3a6d9e;
+  --color-navy-100: #dbe6f0;
+  --color-navy-50: #f2f6fa;
+
+  --color-gold-600: #b9791a;
+  --color-gold-500: #d9941f;
+  --color-gold-400: #f2ab34;
+  --color-gold-300: #f7c469;
+  --color-gold-200: #fbdea0;
+  --color-gold-100: #fdefd2;
+
+  --color-paper-50: #faf8f4;
+  --color-paper-100: #f3efe6;
+  --color-paper-200: #e7e0d1;
+
+  --color-success-500: #1f9d6b;
+  --color-success-100: #d9f3e7;
+  --color-warning-500: #d9941f;
+  --color-warning-100: #fbead0;
+  --color-danger-500: #c14444;
+  --color-danger-100: #f6dede;
+  --color-info-500: #3a6d9e;
+  --color-info-100: #dbe6f0;
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+:root {
+  --background: var(--color-paper-50);
+  --foreground: var(--color-navy-950);
+  --card: #ffffff;
+  --card-border: var(--color-paper-200);
+  --muted: var(--color-navy-500);
+  --muted-bg: var(--color-navy-50);
+  --accent: var(--color-gold-500);
+  --accent-foreground: var(--color-navy-950);
+  --ring: var(--color-gold-400);
+  --sidebar-bg: var(--color-navy-950);
+  --sidebar-fg: var(--color-navy-100);
+  --sidebar-active: var(--color-navy-850);
+}
+
+.dark {
+  --background: var(--color-navy-950);
+  --foreground: var(--color-navy-50);
+  --card: var(--color-navy-900);
+  --card-border: var(--color-navy-800);
+  --muted: var(--color-navy-100);
+  --muted-bg: var(--color-navy-850);
+  --accent: var(--color-gold-400);
+  --accent-foreground: var(--color-navy-950);
+  --ring: var(--color-gold-400);
+  --sidebar-bg: var(--color-navy-950);
+  --sidebar-fg: var(--color-navy-100);
+  --sidebar-active: var(--color-navy-850);
+}
+
+* {
+  border-color: var(--card-border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "ss01";
+}
+
+.font-mono,
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-glyph {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 1.25rem;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.dark .bar-glyph {
+  opacity: 0.12;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy-500);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

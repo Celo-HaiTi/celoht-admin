@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import type { ColumnDef } from "@tanstack/react-table";
 import { MockDataBanner } from "@/components/dashboard/mock-data-banner";
