@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Wallet, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/client";
@@ -15,29 +15,30 @@ import { toast } from "sonner";
  *  - Wallet connect (Valora), for verifying on-chain roles without a
  *    separate password to manage - consistent with CeloHT's Celo-native,
  *    Valora-only wallet policy.
- * In mock mode (no Supabase configured) both buttons drop straight into
- * the dashboard as a demo viewer so the UI stays reviewable.
+ * Unauthenticated mock access is handled by middleware in explicitly enabled
+ * non-production environments. This page never creates a fake session.
  */
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
   const params = useSearchParams();
   const next = params.get("next") ?? "/dashboard/executive";
+  const configurationRequired = params.get("reason") === "configuration";
 
   async function handleMagicLink(e: React.FormEvent) {
     e.preventDefault();
     const supabase = createClient();
     if (!supabase) {
-      toast.info("Mock mode: Supabase isn't configured, so this signs you in as a demo viewer.");
-      router.push(next);
+      toast.error("Admin authentication is not configured.");
       return;
     }
     setLoading(true);
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${next}` },
+      options: {
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=${next}`,
+      },
     });
     setLoading(false);
     if (error) {
@@ -54,25 +55,29 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-navy-950 px-4">
-      <div className="w-full max-w-sm rounded-lg border border-navy-800 bg-navy-900 p-8 text-navy-50 shadow-xl">
+    <div className="bg-navy-950 flex min-h-screen items-center justify-center px-4">
+      <div className="border-navy-800 bg-navy-900 text-navy-50 w-full max-w-sm rounded-lg border p-8 shadow-xl">
         <div className="mb-6 flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gold-400 text-navy-950">
+          <div className="bg-gold-400 text-navy-950 flex h-9 w-9 items-center justify-center rounded-md">
             <BarGlyph className="h-4 w-6 opacity-100" />
           </div>
           <div>
             <p className="font-display text-base font-semibold">CeloHT Admin</p>
-            <p className="text-xs text-navy-100/60">Sign in to the control center</p>
+            <p className="text-navy-100/60 text-xs">Sign in to the control center</p>
           </div>
         </div>
 
         {sent ? (
-          <p className="rounded-md bg-navy-850 p-3 text-sm text-navy-100">
+          <p className="bg-navy-850 text-navy-100 rounded-md p-3 text-sm">
             Check <span className="font-medium">{email}</span> for a sign-in link.
+          </p>
+        ) : configurationRequired ? (
+          <p className="bg-navy-850 text-navy-100 rounded-md p-3 text-sm">
+            Supabase authentication is required before this admin environment can be used.
           </p>
         ) : (
           <form onSubmit={handleMagicLink} className="space-y-3">
-            <label className="block text-xs text-navy-100/70" htmlFor="email">
+            <label className="text-navy-100/70 block text-xs" htmlFor="email">
               Email
             </label>
             <input
@@ -82,7 +87,7 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@celoht.com"
-              className="h-9 w-full rounded-md border border-navy-700 bg-navy-950 px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[--ring]"
+              className="border-navy-700 bg-navy-950 h-9 w-full rounded-md border px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[--ring]"
             />
             <Button type="submit" variant="gold" className="w-full" disabled={loading}>
               <Mail className="h-4 w-4" />
@@ -91,20 +96,24 @@ export default function LoginPage() {
           </form>
         )}
 
-        <div className="my-4 flex items-center gap-2 text-xs text-navy-100/40">
-          <div className="h-px flex-1 bg-navy-800" />
+        <div className="text-navy-100/40 my-4 flex items-center gap-2 text-xs">
+          <div className="bg-navy-800 h-px flex-1" />
           or
-          <div className="h-px flex-1 bg-navy-800" />
+          <div className="bg-navy-800 h-px flex-1" />
         </div>
 
-        <Button variant="outline" className="w-full border-navy-700 text-navy-50 hover:bg-navy-850" onClick={handleWalletConnect}>
+        <Button
+          variant="outline"
+          className="border-navy-700 text-navy-50 hover:bg-navy-850 w-full"
+          onClick={handleWalletConnect}
+        >
           <Wallet className="h-4 w-4" />
           Continue with Valora
         </Button>
 
-        <p className="mt-6 text-center text-[11px] text-navy-100/40">
-          Access is limited to Foundation Director, Maintainer Council, and
-          approved Community Contributors.
+        <p className="text-navy-100/40 mt-6 text-center text-[11px]">
+          Access is limited to Foundation Director, Maintainer Council, and approved
+          Community Contributors.
         </p>
       </div>
     </div>

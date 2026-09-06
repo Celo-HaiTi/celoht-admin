@@ -12,7 +12,7 @@ This repo has been repaired and verified as a functional Next.js app shell:
 
 - App Router structure restored under `app/`
 - Dashboard route system working for all configured dashboard slugs
-- Default behavior is mock mode until real Supabase variables are set
+- Default local development behavior is explicitly enabled mock mode; production fails closed until Supabase auth is configured
 - No wallet signing or treasury custody logic is implemented here
 - Verified with actual commands: `npm test`, `npm run build`, and `npm run lint`
 
@@ -36,7 +36,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-If the Supabase environment variables are not configured, the app stays in mock-data mode and shows a mock-data banner instead of claiming live financial or operational numbers.
+If the Supabase environment variables are not configured, local development can use explicit mock mode by setting `NEXT_PUBLIC_ALLOW_UNAUTHENTICATED_MOCK_MODE=true`. Production does not bypass authentication and redirects to the login configuration state instead of exposing the admin dashboard.
 
 ## Routes
 

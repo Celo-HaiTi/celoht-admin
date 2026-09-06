@@ -9,21 +9,22 @@ alter table public.governance_proposals enable row level security;
 alter table public.audit_log enable row level security;
 
 create function public.current_role() returns public.user_role
-language sql stable security definer as $$
+language sql stable security definer set search_path = public as $$
   select role from public.profiles where id = auth.uid();
 $$;
 
--- profiles: users read all profiles, update only their own.
-create policy "profiles_select_all" on public.profiles for select using (true);
-create policy "profiles_update_self" on public.profiles for update using (id = auth.uid());
-
--- treasury: everyone authenticated reads; council+director write.
-create policy "treasury_select_authenticated" on public.treasury_transactions
+-- profiles: authenticated users can read the directory; role changes are privileged.
+create policy "profiles_select_authenticated" on public.profiles
   for select using (auth.role() = 'authenticated');
+
+-- treasury: only council+director can read or write sensitive financial records.
+create policy "treasury_select_authenticated" on public.treasury_transactions
+  for select using (public.current_role() in ('director', 'council'));
 create policy "treasury_write_council_up" on public.treasury_transactions
   for insert with check (public.current_role() in ('director', 'council'));
 create policy "treasury_update_council_up" on public.treasury_transactions
-  for update using (public.current_role() in ('director', 'council'));
+  for update using (public.current_role() in ('director', 'council'))
+  with check (public.current_role() in ('director', 'council'));
 
 -- donations: read-only for everyone authenticated; writes via service role only
 -- (donation ingestion happens through a webhook/edge function, not client writes).

@@ -11,4 +11,12 @@ Roles (`director`, `council`, `contributor`, `viewer`) live on `public.profiles.
 
 ## Mock mode
 
-If `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` aren't set, `middleware.ts` skips the auth check entirely and the login page's buttons drop straight into the dashboard as a demo viewer. This keeps the UI reviewable without a live backend - see `docs/DATA_SOURCES.md`.
+Unauthenticated mock access is available only when all of the following are true:
+
+- the environment is non-production;
+- `NEXT_PUBLIC_ALLOW_UNAUTHENTICATED_MOCK_MODE=true` is set; and
+- Supabase credentials are absent.
+
+The mock path never creates a Supabase session. In production, missing Supabase credentials fail closed and redirect to `/login?reason=configuration`. The dashboard must not be exposed as an unauthenticated admin surface.
+
+Mock values remain clearly labeled and must not be presented as live Treasury, identity, blockchain, or impact data. See [DATA_SOURCES.md](DATA_SOURCES.md).
