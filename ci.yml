@@ -20,9 +20,11 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run test
+      - run: npm audit --audit-level=high
       - run: npm run build
         env:
-          NEXT_PUBLIC_FORCE_MOCK_DATA: "true"
+          NEXT_PUBLIC_SUPABASE_URL: "https://ci.invalid.example"
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: "ci-placeholder-anon-key"
 
   codeql:
     runs-on: ubuntu-latest

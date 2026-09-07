@@ -5,13 +5,17 @@ This document records the evidence-based status of `celoht-admin`. It describes 
 ## IMPLEMENTED
 
 - Next.js App Router dashboard shell with typed TypeScript configuration.
-- Deterministic mock data with persistent mock-data labeling.
-- Explicit development-only unauthenticated mock access.
-- Production fail-closed behavior when Supabase authentication is not configured.
+- Development-only deterministic fixture modules isolated behind a dynamic development map.
+- Production dashboard containment with an explicit `UNAVAILABLE` state and no fixture execution.
+- Production fail-closed data-source guard and removal of public mock-mode switches.
+- Server-side Supabase magic-link callback with same-origin redirect validation.
 - Supabase server and browser client helpers using the anon key only.
+- Server-only service-role client and audited event writer.
 - RLS migrations for profile directory access, role-gated Treasury reads/writes, governance, donations, and audit-log reads.
+- Append-only audit migration with immutable update/delete trigger.
+- Health and readiness endpoints that do not expose secrets.
 - Removal of self-service profile updates so users cannot change their own role through RLS.
-- CI checks for formatting, lint, typechecking, tests, build, and CodeQL analysis.
+- CI checks for formatting, lint, typechecking, tests, build, CodeQL analysis, and a high/critical dependency audit gate.
 
 ## TESTNET READY
 
@@ -54,11 +58,9 @@ This document records the evidence-based status of `celoht-admin`. It describes 
 
 ## Validation Evidence
 
-- `npm ci` completed successfully on 2026-09-06.
-- Focused middleware tests pass: `npm test -- middleware.test.ts`.
-- Full tests pass: `npm test` (2 files, 4 tests).
+- `npm ci` completed successfully on 2026-09-07.
+- Full tests pass: `npm test` (5 files, 8 tests).
 - Typecheck passes: `npm run typecheck`.
-- Production build passes: `npm run build` with the existing mock-data build path.
+- Production build passes: `npm run build`; production route output is contained until providers are configured.
 - Lint passes with five existing warnings in layout/configuration files; there are no lint errors.
-- Targeted formatting passes for edited TypeScript and Markdown files. Repository-wide `npm run format:check` still reports 95 pre-existing files needing formatting.
-- Production dependency audit remains blocked: `npm audit --omit=dev` reports 14 vulnerabilities, including 5 high and 3 critical findings.
+- Dependency audit reports 17 vulnerabilities: 6 high and 3 critical. Remediation is required; no blind upgrade was applied.

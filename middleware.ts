@@ -3,19 +3,11 @@ import { type NextRequest, NextResponse } from "next/server";
 
 const PUBLIC_PATHS = ["/login", "/auth/callback"];
 
-export function isUnauthenticatedMockModeAllowed(env: NodeJS.ProcessEnv = process.env) {
-  return (
-    env.NODE_ENV !== "production" &&
-    env.NEXT_PUBLIC_ALLOW_UNAUTHENTICATED_MOCK_MODE === "true"
-  );
-}
-
 /**
  * Refreshes the Supabase session on every request and redirects
  * unauthenticated users away from protected /dashboard/* routes.
- * Unauthenticated mock access is opt-in and limited to non-production
- * environments. A production build without Supabase configuration fails
- * closed instead of exposing the admin dashboard.
+ * A request without Supabase configuration fails closed instead of exposing
+ * the admin dashboard. Fixtures are not an authentication mode.
  */
 export async function middleware(request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -25,7 +17,6 @@ export async function middleware(request: NextRequest) {
 
   if (!url || !key) {
     if (isPublic) return response;
-    if (isUnauthenticatedMockModeAllowed()) return response;
 
     const redirectUrl = new URL("/login", request.url);
     redirectUrl.searchParams.set("reason", "configuration");

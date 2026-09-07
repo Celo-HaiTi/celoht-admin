@@ -40,10 +40,17 @@ export interface Database {
       audit_log: {
         Row: {
           id: string;
-          actor_id: string;
+          actor_id: string | null;
+          actor_role: string | null;
           action: string;
           target: string;
+          resource_type: string | null;
+          resource_id: string | null;
+          result: "SUCCESS" | "FAILURE" | null;
+          failure_reason: string | null;
+          request_id: string | null;
           metadata: Record<string, unknown> | null;
+          tx_hash: string | null;
           created_at: string;
         };
         Insert: Partial<Database["public"]["Tables"]["audit_log"]["Row"]>;

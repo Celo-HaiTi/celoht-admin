@@ -1,5 +1,23 @@
 # Architecture
 
+## Current production boundary
+
+Production requests are authenticated by middleware and routed through the
+server-side App Router. The dashboard dispatcher returns an explicit
+`UNAVAILABLE` state until a verified provider is configured; it does not execute
+fixture-backed dashboard components in production. Development fixture imports
+are isolated in `app/dashboard/[slug]/development-map.tsx`.
+
+Provider contracts and provenance types live under `lib/data/providers/` and
+`lib/data/provenance.ts`. The Celo RPC treasury adapter validates the configured
+chain and treasury address and returns block-backed native CELO balance data.
+Transactions, donations, governance, agents, education, reforestation, and
+audit adapters remain unavailable until canonical external sources are supplied.
+
+The browser never receives the Supabase service-role key and contains no private
+key signing path. Append-only audit protections are defined in
+`0004_audit_provenance_hardening.sql`.
+
 ```
 src/
   app/

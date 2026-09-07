@@ -4,7 +4,7 @@ Operational admin dashboard for the CeloHT ecosystem. This repository provides t
 
 CeloHT is a community-governed financial-inclusion and blockchain-education initiative built on Celo. This repository is the admin platform used to review operational data and dashboard views, not a wallet, treasury custody layer, or smart-contract deployment system.
 
-> CeloHT does not currently define a native token, ICO, presale, or staking product in this repository. This app is a dashboard and operational interface, with mock data enabled by default until real data sources are configured.
+> CeloHT does not currently define a native token, ICO, presale, or staking product in this repository. This app is an admin interface whose production dashboard routes fail closed until verified data providers are configured.
 
 ## Current status
 
@@ -12,7 +12,7 @@ This repo has been repaired and verified as a functional Next.js app shell:
 
 - App Router structure restored under `app/`
 - Dashboard route system working for all configured dashboard slugs
-- Default local development behavior is explicitly enabled mock mode; production fails closed until Supabase auth is configured
+- Development fixtures are isolated from production; production dashboard routes show `UNAVAILABLE` until verified providers are configured
 - No wallet signing or treasury custody logic is implemented here
 - Verified with actual commands: `npm test`, `npm run build`, and `npm run lint`
 
@@ -36,7 +36,9 @@ cp .env.example .env.local
 npm run dev
 ```
 
-If the Supabase environment variables are not configured, local development can use explicit mock mode by setting `NEXT_PUBLIC_ALLOW_UNAUTHENTICATED_MOCK_MODE=true`. Production does not bypass authentication and redirects to the login configuration state instead of exposing the admin dashboard.
+Supabase authentication is required for dashboard access. Production never
+accepts an unauthenticated fixture mode and never substitutes mock data for an
+unavailable provider.
 
 ## Routes
 
@@ -44,11 +46,13 @@ If the Supabase environment variables are not configured, local development can 
 - `/login` for the auth entry page
 - `/dashboard/[slug]` for the dashboard router
 
-## Mock-first behavior
+## Data and production status
 
-This repo is intentionally not connected to production data by default. All dashboard values are seeded and marked as mock until real connectors are added.
-
-This is important because the app must never present demo or seeded values as if they were live Treasury, wallet, or chain data.
+Canonical provider contracts and provenance types are present, but the external
+CeloHT indexer, verified addresses, event definitions, and production evidence
+sources are not configured in this repository. This project is **NOT
+PRODUCTION READY** and must not be represented as live financial, governance,
+impact, audit, or blockchain reporting.
 
 ## Required external configuration for live data
 

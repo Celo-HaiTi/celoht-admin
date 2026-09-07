@@ -1,16 +1,19 @@
-/**
- * Every dashboard in this repo reads through this single switch.
- *
- * MOCK MODE is the default until real Supabase credentials are provided.
- * This is intentional: financial and impact dashboards must never present
- * fabricated numbers as if they were live - see /docs/DATA_SOURCES.md.
- * Every mock value is generated deterministically (seeded), labeled at
- * the source, and the UI renders a persistent "Mock Data" banner whenever
- * this flag is true.
- */
+export const DEV_FIXTURES_ENV = "ENABLE_DEV_FIXTURES";
+
 export function isMockMode(): boolean {
-  const forced = process.env.NEXT_PUBLIC_FORCE_MOCK_DATA === "true";
+  const fixturesEnabled = process.env[DEV_FIXTURES_ENV] === "true";
+  const isProduction = process.env.NODE_ENV === "production";
+
+  if (isProduction) {
+    if (fixturesEnabled) {
+      throw new Error("Mock mode is forbidden in production");
+    }
+
+    throw new Error("Production dashboard providers are not configured");
+  }
+
   const hasSupabase =
     !!process.env.NEXT_PUBLIC_SUPABASE_URL && !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  return forced || !hasSupabase;
+
+  return fixturesEnabled || !hasSupabase;
 }

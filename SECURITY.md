@@ -13,3 +13,16 @@ This repository handles governance, treasury, and program data for CeloHT. In-sc
 ## Supported versions
 
 Only the `main` branch receives security fixes.
+
+## Current security status
+
+This repository is **NOT PRODUCTION READY**. Production dashboard routes fail
+closed when verified providers are unavailable, but the external CeloHT indexer,
+verified contract metadata, live Supabase project, MFA, rate limiting, backup,
+and independent security review are not verified here.
+
+The service-role client is server-only. Do not import `lib/supabase/admin.ts`
+from client components, and do not add service-role keys or private keys to any
+`NEXT_PUBLIC_*` variable. Apply all SQL migrations, including
+`0004_audit_provenance_hardening.sql`, through a reviewed database deployment
+process before relying on the controls.

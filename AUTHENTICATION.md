@@ -9,14 +9,13 @@ Two sign-in paths, matching how CeloHT actually operates:
 
 Roles (`director`, `council`, `contributor`, `viewer`) live on `public.profiles.role` and are enforced by Postgres RLS (source of truth) and mirrored in `src/types/index.ts` for UI gating. New users get `viewer` by default; role changes should go through a Maintainer Council-approved process, not be self-service.
 
-## Mock mode
+## Session callback and fail-closed behavior
 
-Unauthenticated mock access is available only when all of the following are true:
+Magic links return through `/auth/callback`. The callback exchanges the one-time
+code server-side, rejects external redirect targets, and sends invalid or
+unconfigured requests back to login. Dashboard routes require an authenticated
+Supabase session in every environment.
 
-- the environment is non-production;
-- `NEXT_PUBLIC_ALLOW_UNAUTHENTICATED_MOCK_MODE=true` is set; and
-- Supabase credentials are absent.
-
-The mock path never creates a Supabase session. In production, missing Supabase credentials fail closed and redirect to `/login?reason=configuration`. The dashboard must not be exposed as an unauthenticated admin surface.
-
-Mock values remain clearly labeled and must not be presented as live Treasury, identity, blockchain, or impact data. See [DATA_SOURCES.md](DATA_SOURCES.md).
+Fixture-backed dashboards are development/test tooling only. Production routes
+render `UNAVAILABLE` until a verified provider is configured; they never fall
+back to fixture data and never grant unauthenticated access.

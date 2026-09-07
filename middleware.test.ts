@@ -1,26 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { isUnauthenticatedMockModeAllowed } from "./middleware";
 
-describe("isUnauthenticatedMockModeAllowed", () => {
-  it("allows explicit mock access during development", () => {
-    expect(
-      isUnauthenticatedMockModeAllowed({
-        NODE_ENV: "development",
-        NEXT_PUBLIC_ALLOW_UNAUTHENTICATED_MOCK_MODE: "true",
-      }),
-    ).toBe(true);
-  });
+describe("middleware security contract", () => {
+  it("does not expose an unauthenticated mock-mode bypass", async () => {
+    const middlewareSource = await import("node:fs").then((fs) =>
+      fs.readFileSync("middleware.ts", "utf8"),
+    );
 
-  it("fails closed in production even when the flag is set", () => {
-    expect(
-      isUnauthenticatedMockModeAllowed({
-        NODE_ENV: "production",
-        NEXT_PUBLIC_ALLOW_UNAUTHENTICATED_MOCK_MODE: "true",
-      }),
-    ).toBe(false);
-  });
-
-  it("requires an explicit flag", () => {
-    expect(isUnauthenticatedMockModeAllowed({ NODE_ENV: "development" })).toBe(false);
+    expect(middlewareSource).not.toContain("isUnauthenticatedMockModeAllowed");
+    expect(middlewareSource).not.toContain("NEXT_PUBLIC_ALLOW_UNAUTHENTICATED_MOCK_MODE");
   });
 });
