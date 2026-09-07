@@ -1,5 +1,6 @@
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
+import type { Database } from "@/types/database";
 
 interface AuditEvent {
   action: string;
@@ -26,11 +27,11 @@ export async function recordAuditEvent(event: AuditEvent) {
     .from("profiles")
     .select("role")
     .eq("id", user.id)
-    .single();
+    .maybeSingle<{ role: string }>();
 
   if (profileError || !profile) throw new Error("Trusted administrator profile required");
 
-  const { error } = await adminClient.from("audit_log").insert({
+  const auditInsert: Database["public"]["Tables"]["audit_log"]["Insert"] = {
     actor_id: user.id,
     actor_role: profile.role,
     action: event.action,
@@ -42,7 +43,15 @@ export async function recordAuditEvent(event: AuditEvent) {
     request_id: event.requestId,
     metadata: event.metadata ?? null,
     tx_hash: event.txHash ?? null,
-  });
+  };
+
+  const auditTable = adminClient.from("audit_log") as unknown as {
+    insert: (rows: Database["public"]["Tables"]["audit_log"]["Insert"][]) => Promise<{
+      error: { message: string } | null;
+    }>;
+  };
+
+  const { error } = await auditTable.insert([auditInsert]);
 
   if (error) throw new Error(`Audit event write failed: ${error.message}`);
 }

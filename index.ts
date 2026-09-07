@@ -63,4 +63,4 @@ export interface AuditLogEntry {
   metadata?: Record<string, unknown>;
 }
 
-export type ExportFormat = "csv" | "xlsx" | "pdf";
+export type ExportFormat = "csv" | "pdf";

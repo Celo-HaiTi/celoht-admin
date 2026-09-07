@@ -1,5 +1,4 @@
 import Papa from "papaparse";
-import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
@@ -11,13 +10,6 @@ import autoTable from "jspdf-autotable";
 export function exportToCSV(filename: string, rows: Record<string, unknown>[]) {
   const csv = Papa.unparse(rows);
   downloadBlob(csv, `${filename}.csv`, "text/csv;charset=utf-8;");
-}
-
-export function exportToXLSX(filename: string, rows: Record<string, unknown>[], sheetName = "Sheet1") {
-  const worksheet = XLSX.utils.json_to_sheet(rows);
-  const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
-  XLSX.writeFile(workbook, `${filename}.xlsx`);
 }
 
 export function exportToPDF(filename: string, title: string, rows: Record<string, unknown>[]) {

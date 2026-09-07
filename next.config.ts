@@ -27,7 +27,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   output: "standalone",
-  eslint: { ignoreDuringBuilds: false },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

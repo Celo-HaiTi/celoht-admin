@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { exportToCSV, exportToXLSX, exportToPDF } from "@/lib/utils/export";
+import { exportToCSV, exportToPDF } from "@/lib/utils/export";
 
 interface ExportMenuProps {
   filename: string;
@@ -11,7 +11,7 @@ interface ExportMenuProps {
   rows: Record<string, unknown>[];
 }
 
-/** Dropdown attached to every dashboard/table: Export → CSV / Excel / PDF. */
+/** Dropdown attached to every dashboard/table: Export -> CSV / PDF. */
 export function ExportMenu({ filename, title, rows }: ExportMenuProps) {
   const [open, setOpen] = useState(false);
 
@@ -29,7 +29,6 @@ export function ExportMenu({ filename, title, rows }: ExportMenuProps) {
         >
           {[
             { label: "CSV", fn: () => exportToCSV(filename, rows) },
-            { label: "Excel (.xlsx)", fn: () => exportToXLSX(filename, rows) },
             { label: "PDF", fn: () => exportToPDF(filename, title, rows) },
           ].map((opt) => (
             <button
