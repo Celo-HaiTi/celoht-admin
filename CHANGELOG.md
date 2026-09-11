@@ -8,10 +8,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 - Deep-dive documentation for all 24 dashboards (`docs/*_DASHBOARD.md`) - purpose, exact data model, RLS, current data source, and a concrete roadmap from mock to real for each.
 - `docs/README.md` - full documentation index, organized by the same groups as the sidebar nav.
-- Corrected every reference to the CeloHT GitHub org from the nonexistent `Celo-HT` to the real, verified `Celo-HaiTi` (`.env.example`, GitHub Analytics dashboard, deploy workflow, README).
+- Corrected CeloHT GitHub organization references to the real, verified `Celo-HaiTi` (`.env.example`, GitHub Analytics dashboard, deploy workflow, README).
 
 ### Fixed
-- Live verification (2026-08-06) found the CeloHT org profile's own README mixing `Celo-HT` (nonexistent, 404) and `Celo-HaiTi` (real) links inconsistently - a corrected profile README was produced separately for the `.github` repo.
+- Live verification (2026-08-06) found inconsistent links in the CeloHT organization profile README - a corrected profile README was produced separately for the `.github` repo.
 
 ## [0.2.0] - 2026-08-06
 
