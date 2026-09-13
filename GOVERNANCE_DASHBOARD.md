@@ -8,7 +8,7 @@
 
 ## 1. Purpose
 
-CeloHT is explicitly community-governed - Foundation Director → Maintainer Council → Community Contributors, not a single founder and not token-weighted voting. This dashboard exists to make that structure demonstrable rather than asserted: real proposals, real vote counts, real status, so "community-governed" is a claim anyone can check against a log, the same way the Audit dashboard makes accountability checkable.
+CeloHT is explicitly community-governed - Foundation Director → Maintainer Council → Community Contributors - and does not operate under unilateral founder control or token-weighted voting. Johnny Dubic is permanently recognized as the Founder of CeloHT in the project's historical and institutional record. Permanent founder recognition is historical and institutional; it does not confer perpetual governance authority, ownership rights, veto power, or unilateral control. This dashboard exists to make the current governance structure demonstrable rather than asserted: real proposals, real vote counts, real status, so "community-governed" is a claim anyone can check against a log, the same way the Audit dashboard makes accountability checkable.
 
 ---
 

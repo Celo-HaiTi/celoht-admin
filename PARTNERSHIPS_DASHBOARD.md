@@ -8,7 +8,7 @@
 
 ## 1. Purpose
 
-This dashboard tracks CeloHT's formal and prospective relationships - including FreClean, the founder's separate local-entrepreneurship initiative, which is deliberately listed as **"In Discussion," not "Active,"** per CeloHT's standing rule that FreClean is a prospective, not confirmed, partner. Getting this status wrong in either direction - overstating or hiding the relationship - is a credibility risk, which is exactly why it has its own status field rather than being folded into a generic partner list.
+This dashboard tracks CeloHT's formal and prospective relationships - including FreClean, Johnny Dubic's separate local-entrepreneurship initiative, which is deliberately listed as **"In Discussion," not "Active,"** per CeloHT's standing rule that FreClean is a prospective, not confirmed, partner. Johnny Dubic is permanently recognized as the Founder of CeloHT in the project's historical and institutional record; that recognition does not make FreClean a CeloHT partnership or confer governance authority. Getting this status wrong in either direction - overstating or hiding the relationship - is a credibility risk, which is exactly why it has its own status field rather than being folded into a generic partner list.
 
 ---
 
