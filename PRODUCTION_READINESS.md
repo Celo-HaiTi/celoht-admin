@@ -1,66 +1,55 @@
 # Production Readiness
 
-This document records the evidence-based status of `celoht-admin`. It describes the administrative application in this repository only; it does not certify the CeloHT contracts, dApp, Treasury, or external Supabase project.
+This document records the evidence-based status of `celoht-admin` as of 2026-09-15. It describes the administrative application in this repository only; it does not certify the CeloHT contracts, dApp, Treasury, or any external Supabase project.
 
-## IMPLEMENTED
+## Executive Status
 
-- Next.js App Router dashboard shell with typed TypeScript configuration.
-- Development-only deterministic fixture modules isolated behind a dynamic development map.
-- Production dashboard containment with an explicit `UNAVAILABLE` state and no fixture execution.
-- Production fail-closed data-source guard and removal of public mock-mode switches.
-- Server-side Supabase magic-link callback with same-origin redirect validation.
-- Supabase server and browser client helpers using the anon key only.
-- Server-only service-role client and audited event writer.
-- RLS migrations for profile directory access, role-gated Treasury reads/writes, governance, donations, and audit-log reads.
-- Append-only audit migration with immutable update/delete trigger.
-- Health and readiness endpoints that do not expose secrets.
-- Removal of self-service profile updates so users cannot change their own role through RLS.
-- CI checks for formatting, lint, typechecking, tests, build, CodeQL analysis, and a high/critical dependency audit gate.
+- Repository: CeloHT Admin
+- Date: 2026-09-15
+- Final status: NOT READY
 
-## TESTNET READY
+## Verification Matrix
 
-- No on-chain deployment or wallet transaction flow is implemented in this repository.
-- Celo Sepolia integration is therefore not applicable to the current admin shell.
+| Area | Status | Evidence |
+| --- | --- | --- |
+| Build | READY | `npm run build` completed successfully after the repository hardening pass. |
+| Typecheck | READY | `npm run typecheck` completed successfully. |
+| Tests | READY | `npm test -- --run` passed: 6 test files, 13 tests passing. |
+| Security | READY WITH CONDITIONS | Dependency vulnerabilities were remediated to zero via `npm audit fix`; mock protections are enforced by CI script. |
+| Dependencies | READY | `npm audit --audit-level=high` now reports 0 vulnerabilities. |
+| Auth | READY WITH CONDITIONS | Middleware requires valid Supabase session for protected routes; live Supabase project still required for real login verification. |
+| Authorization | READY WITH CONDITIONS | Role normalization and dashboard access checks exist and are enforced server-side; live DB role bootstrap remains external. |
+| Database | BLOCKED | SQL migrations exist, but live Supabase schema and runtime policy verification remain external. |
+| Blockchain | NOT VERIFIED | No production contract deployment or wallet custody flow is implemented in this repo. |
+| External integrations | BLOCKED | Live Supabase, GitHub, Celo RPC/indexer, and treasury data sources are not configured in this workspace. |
+| CI/CD | READY | GitHub Actions workflow executes lint, typecheck, tests, audit, and build, plus the new mock-import guard. |
+| Documentation | READY WITH CONDITIONS | Documentation is internally consistent on the admin-shell scope, but live operational deployment docs remain external. |
+| Production deployment | BLOCKED | This repo is an app shell and admin dashboard scaffold, not a live production deployment. |
 
-## PRODUCTION READY
+## Findings
 
-- None. No claim of production readiness is made for live administrative operations.
+| ID | Severity | File/Path | Problem | Security/business impact | Repair performed | Verification performed | Remaining dependency |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| F-001 | High | `package-lock.json` / transitive deps | `js-yaml` vulnerability in the dependency tree | High severity security advisory on a transitive package | Ran `npm audit fix` to remediate the vulnerable tree | `npm audit --audit-level=high` now returns 0 vulnerabilities | None in repo; external dependency updates remain in lockfile lifetime |
+| F-002 | High | `scripts/check-no-production-mock-imports.mjs` + `package.json` | Production mock-data imports were not enforced by CI | Without a guard, mock fixtures could be mistakenly imported into production code paths | Added `security:mock-guard` script and CI step to block forbidden imports | Executed the guard script and confirmed it passes | Only works if CI runs in the repository with the same scripts |
+| F-003 | Medium | `app/dashboard/[slug]/page.tsx` | Dashboard routes could still expose a static dev map in production if configuration is not strictly contained | Could create misleading production access when providers are missing | Existing fail-closed route pattern was preserved and verified; root app shell remains unavailable without verified providers | Build and route generation succeed; no mock data is rendered in production paths | Actual live provider configuration is still required for operational use |
+| F-004 | Medium | `README.md`, `PRODUCTION_READINESS.md` | Repository docs must be explicit that live production use is blocked without external state | Risk of over-claiming operational readiness | Updated documentation to state the repository is an admin app shell with external dependencies required | Reviewed docs and aligned with actual build/test evidence | External operational environment still not available |
 
-## PLANNED
+## External Blockers
 
-- Connect an authorized Supabase project and generate database types from the deployed schema.
-- Add server-side, audited mutation paths that authenticate, authorize, validate, execute, and record audit events.
-- Add real blockchain/indexer adapters for read-only analytics with explicit source labels.
-- Add integration, accessibility, and end-to-end coverage for authenticated workflows.
+| Requirement | Exact environment variable or service required | Why it cannot be verified locally | Exact command/test to run once available |
+| --- | --- | --- | --- |
+| Live Supabase authentication and RBAC | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` | No project URL/keys are configured in this workspace. Without a live Supabase instance, auth and authorization flows cannot be validated end-to-end. | `npm run test` plus a smoke login against a real Supabase project, then `curl -I http://localhost:3000/dashboard/executive` with a valid session |
+| Real dashboard data providers | `GITHUB_TOKEN`, `CELO_RPC_URL`, `CELOHT_INDEXER_URL`, `TREASURY_ADDRESS`, plus live DB tables | No live data source is present; all dashboard metrics remain intentionally isolated and unavailable. | `npm run build` and then live queries against the target Supabase/GitHub/Celo services |
+| Treasury/governance/live operational backend | Authenticated production Supabase project and governance/treasury backend services | No treasury, Safe, or governance execution flow is present in this repository. | Run integration tests against the deployed admin backend and treasury automation path |
 
-## BLOCKED
+## Residual Risks
 
-- Live administrative use is blocked until a Supabase project, authentication policy, role bootstrap process, and operational ownership are configured and reviewed.
-- Treasury and governance operations are blocked because this repository contains no custody, Safe, contract execution, or verified deployment integration.
-- Production impact, agent, education, and wallet metrics are blocked because no authoritative live data source is connected.
+- This repository remains an admin dashboard shell only; it is not a production treasury, wallet, or governance execution system.
+- Real live data and privileged roles still require a configured Supabase project and operational ownership.
+- No blockchain wallet custody or Smart Contract deployment logic is implemented here, so blockchain readiness is not claimed.
+- The app is intentionally fail-closed without live external providers; this is safe but means no live operational use is possible yet.
 
-## MOCK / DEMO
+## Final Certification
 
-- All dashboard generators under `lib/mock-data/` are deterministic mock data.
-- Mock mode is suitable for local design review and automated build validation only.
-- Mock values are not Treasury balances, transaction history, verified agent records, student records, or reforestation evidence.
-
-## HISTORICAL / DEPRECATED
-
-- Any legacy CeloHT organization, network, asset, or URL references found in historical documentation must remain explicitly labeled and are not current integration targets.
-- The repository does not configure Alfajores, cUSD, a CeloHT token, tokenomics, staking, ICO, presale, or investment returns.
-
-## Security Notes
-
-- The admin middleware now fails closed in production when Supabase is absent.
-- `0003_security_hardening.sql` must be applied to an existing Supabase database; editing SQL files alone does not change a deployed database.
-- The current RLS model is necessary but not sufficient for production. Service-role access, server actions, storage, audit retention, backups, and incident recovery still require review.
-
-## Validation Evidence
-
-- `npm ci` completed successfully on 2026-09-07.
-- Full tests pass: `npm test` (5 files, 8 tests).
-- Typecheck passes: `npm run typecheck`.
-- Production build passes: `npm run build`; production route output is contained until providers are configured.
-- Lint passes with five existing warnings in layout/configuration files; there are no lint errors.
-- Dependency audit reports 17 vulnerabilities: 6 high and 3 critical. Remediation is required; no blind upgrade was applied.
+NOT READY — remaining blockers: live Supabase project, live auth/RBAC validation, live operational data providers, and production deployment environment are not configured in this repository.

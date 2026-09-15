@@ -15,6 +15,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "security:mock-guard": "node scripts/check-no-production-mock-imports.mjs",
     "prepare": "husky"
   },
   "dependencies": {
