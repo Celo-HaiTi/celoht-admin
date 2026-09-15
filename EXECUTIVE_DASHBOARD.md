@@ -2,7 +2,7 @@
 
 **Path:** `src/app/(dashboard)/dashboard/executive/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Foundation Director (read) · Maintainer Council (read) · everyone else (read-only)
+**Owners:** Foundation Director (read) · Governance Council (read) · everyone else (read-only)
 
 ---
 
@@ -35,7 +35,7 @@ No dedicated table - see above. Read access should match the union of the indivi
 
 ## 4. Data source
 
-Reads through `src/lib/data-source.ts`'s `isMockMode()`, sourced from `src/lib/mock-data/executive.ts` in mock mode. The roadmap phase statuses (`Complete` / `In progress` / `Planned`) are currently hardcoded to match CeloHT's real, documented roadmap - these should stay manually curated even after other KPIs go live, since "what phase are we in" is a governance decision, not a computed metric.
+Reads through `src/lib/data-source.ts`'s `isMockMode()`, sourced from `src/lib/mock-data/executive.ts` in mock mode. The roadmap phase statuses (`Complete` / `In progress` / `Planned`) are currently hardcoded to match Celo-HaiTi's real, documented roadmap - these should stay manually curated even after other KPIs go live, since "what phase are we in" is a governance decision, not a computed metric.
 
 ---
 

@@ -8,7 +8,7 @@ We aim to acknowledge reports within 5 business days.
 
 ## Scope
 
-This repository handles governance, treasury, and program data for CeloHT. In-scope concerns include: RLS policy bypass, auth/session handling, XSS/CSRF in dashboard forms, and dependency vulnerabilities flagged by CodeQL/Dependabot.
+This repository handles governance, treasury, and program data for Celo-HaiTi. In-scope concerns include: RLS policy bypass, auth/session handling, XSS/CSRF in dashboard forms, and dependency vulnerabilities flagged by CodeQL/Dependabot.
 
 ## Supported versions
 

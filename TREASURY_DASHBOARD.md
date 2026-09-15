@@ -2,16 +2,16 @@
 
 **Path:** `src/app/(dashboard)/dashboard/treasury/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Maintainer Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
+**Owners:** Governance Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
 
 ---
 
 ## 1. Purpose
 
-The Treasury Dashboard is the single place anyone with admin access goes to answer, at a glance: *how much does CeloHT have, where did it come from, and where did it go.* It exists to make CeloHT's finances legible to three audiences at once, without maintaining three separate views:
+The Treasury Dashboard is the single place anyone with admin access goes to answer, at a glance: *how much does Celo-HaiTi have, where did it come from, and where did it go.* It exists to make Celo-HaiTi's finances legible to three audiences at once, without maintaining three separate views:
 
 - **Grant reviewers and prospective partners**, who need to trust the numbers before they trust the pitch.
-- **The Maintainer Council**, who need enough detail to approve or question a specific transaction, not just a total.
+- **The Governance Council**, who need enough detail to review or question a specific transaction, not just a total.
 - **Community Contributors**, who have a right to see how funds raised in the community's name are actually spent.
 
 This document describes what the dashboard shows, how it's built, how the data model works, and - most importantly - exactly what has to happen before any number on this page can be shown to someone outside the core team as real.
@@ -48,12 +48,12 @@ Backed by `supabase/migrations/0001_init.sql`, table `treasury_transactions`:
 
 ### Row Level Security
 
-Defined in `supabase/migrations/0002_rls.sql`:
+Defined in `0002_rls.sql`:
 
 - **Read:** any authenticated user (`director`, `council`, `contributor`, `viewer`).
 - **Write (insert/update):** `director` and `council` only, enforced via `public.current_role()`.
 
-This mirrors CeloHT's real governance chain - Foundation Director → Maintainer Council → Community Contributors - so a Community Contributor can see every transaction but cannot alter one. RLS is the enforcement layer; `src/types/index.ts`'s `PERMISSIONS` map mirrors it for UI-level gating (hiding write actions a role can't perform), but Postgres is the source of truth.
+This documents technical access to the treasury data, not a governance hierarchy. Celo-HaiTi's Governance Council remains its highest ongoing collective decision-making body; Maintainers handle technical/project stewardship, while the configured database roles control only the operations listed above. RLS is the enforcement layer; `src/types/index.ts`'s `PERMISSIONS` map mirrors it for UI-level gating (hiding write actions a role can't perform), but Postgres is the source of truth.
 
 ---
 
@@ -69,7 +69,7 @@ export function getTreasuryTransactions(): TreasuryTx[] { ... }
 - **Mock mode (default):** figures come from `src/lib/mock-data/treasury.ts`, a seeded, deterministic generator. Every mock ID is prefixed `MOCK-TX-`. A persistent banner (`MockDataBanner`) renders at the top of the page whenever this is active.
 - **Real mode:** once `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are set, `isMockMode()` returns `false` and the page should read from `treasury_transactions` via `src/lib/supabase/server.ts` instead. **This wiring is not yet implemented** - replacing the mock import with a real Supabase query, gated by the same `isMockMode()` check, is the single highest-priority item in [§6](#6-roadmap-for-this-dashboard).
 
-> **This is the most sensitive dashboard in the repo to get wrong.** Never remove the mock banner while still on mock data, and never let a screenshot of this page circulate as a real financial statement until it's reading from Supabase. See [`docs/DATA_SOURCES.md`](DATA_SOURCES.md) for the full policy.
+> **This is the most sensitive dashboard in the repo to get wrong.** Never remove the mock banner while still on mock data, and never let a screenshot of this page circulate as a real financial statement until it's reading from Supabase. See [`DATA_SOURCES.md`](DATA_SOURCES.md) for the full policy.
 
 ---
 

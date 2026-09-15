@@ -2,7 +2,7 @@
 
 **Path:** `src/app/(dashboard)/dashboard/kpi/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Maintainer Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
+**Owners:** Governance Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
 
 ---
 
@@ -46,6 +46,6 @@ Reused from the shared library, consistent with every other dashboard in this re
 
 1. **Add a `kpi_targets` table** with a `period` field (e.g. tied to roadmap phases) so targets can be set per-phase rather than as a single perpetual number.
 2. Each row's `actual` value should be computed from the relevant source dashboard's real data (e.g. "Trees planted" pulls from Reforestation) once those are wired - not entered a second time by hand.
-3. Targets should be set and versioned by the Maintainer Council with a visible history, so past targets aren't quietly revised after the fact.
+3. Targets should be set and versioned through the Governance Council's documented process with a visible history, so past targets aren't quietly revised after the fact.
 
 None of the above is required for this dashboard to be considered "built" per [`docs/BUILD_STATUS.md`](BUILD_STATUS.md) - it already has real UI and a real (mocked) data path. These are the steps between "built" and "auditable."

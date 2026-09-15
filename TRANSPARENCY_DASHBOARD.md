@@ -2,13 +2,13 @@
 
 **Path:** `src/app/(dashboard)/dashboard/transparency/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Maintainer Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
+**Owners:** Governance Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
 
 ---
 
 ## 1. Purpose
 
-This dashboard is CeloHT's answer to "how do we know you're actually doing what you say" - a compliance checklist, fund-allocation breakdown, and disclosure log in one place. It's the dashboard most directly aimed at external trust, which means it's also the one where a mock number left unlabeled would do the most damage if mistaken for real.
+This dashboard is Celo-HaiTi's answer to "how do we know you're actually doing what you say" - a compliance checklist, fund-allocation breakdown, and disclosure log in one place. It's the dashboard most directly aimed at external trust, which means it's also the one where a mock number left unlabeled would do the most damage if mistaken for real.
 
 ---
 

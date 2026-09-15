@@ -1,10 +1,11 @@
-/** Roles follow CeloHT's governance model: Foundation Director → Maintainer
- *  Council → Community Contributors. RBAC in this repo maps to that chain. */
+/** RBAC labels describe application access; they do not define a governance
+ * hierarchy. Celo-HaiTi's Governance Council is the highest ongoing
+ * collective decision-making body. */
 export type Role = "director" | "council" | "contributor" | "viewer";
 
 export const ROLE_LABELS: Record<Role, string> = {
   director: "Foundation Director",
-  council: "Maintainer Council",
+  council: "Governance Council",
   contributor: "Community Contributor",
   viewer: "Viewer",
 };

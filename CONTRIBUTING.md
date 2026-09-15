@@ -1,6 +1,6 @@
-# Contributing to CeloHT Admin
+# Contributing to Celo-HaiTi Admin
 
-CeloHT is community-governed. Contributions from Community Contributors are welcome and reviewed by the Maintainer Council.
+Celo-HaiTi is community-governed. The Governance Council is Celo-HaiTi's highest ongoing collective decision-making body. Contributors are welcome to participate through this contribution framework; Maintainers review technical/project changes within their documented scope.
 
 ## Workflow
 

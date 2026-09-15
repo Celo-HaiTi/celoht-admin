@@ -2,13 +2,13 @@
 
 **Path:** `src/app/(dashboard)/dashboard/partnerships/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Maintainer Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
+**Scope:** Partnership operations and representation within Celo-HaiTi's governance and operational framework
 
 ---
 
 ## 1. Purpose
 
-This dashboard tracks CeloHT's formal and prospective relationships - including FreClean, Johnny Dubic's separate local-entrepreneurship initiative, which is deliberately listed as **"In Discussion," not "Active,"** per CeloHT's standing rule that FreClean is a prospective, not confirmed, partner. Johnny Dubic is permanently recognized as the Founder of CeloHT in the project's historical and institutional record; that recognition does not make FreClean a CeloHT partnership or confer governance authority. Getting this status wrong in either direction - overstating or hiding the relationship - is a credibility risk, which is exactly why it has its own status field rather than being folded into a generic partner list.
+This dashboard tracks Celo-HaiTi's formal and prospective relationships - including FreClean, Johnny Dubic's separate local-entrepreneurship initiative, which is deliberately listed as **"In Discussion," not "Active,"** per the documented project status. The Founder role is historical and representative; it does not make FreClean a Celo-HaiTi partnership or confer governance authority. Partnership activities are carried out within Celo-HaiTi's governance and operational framework, and this dashboard does not make partnership personnel or operators a higher governance body. Getting status wrong in either direction - overstating or hiding the relationship - is a credibility risk, which is why it has its own status field.
 
 ---
 
@@ -45,7 +45,7 @@ Reused from the shared library, consistent with every other dashboard in this re
 
 ## 6. Roadmap for this dashboard
 
-1. **Add a `partnerships` table** with a `status` enum matching the real due-diligence framework already documented in CeloHT's `PARTNERSHIPS.md` governance doc, so this dashboard reflects the same process instead of inventing a parallel one.
+1. **Add a `partnerships` table** with a `status` enum matching the approved partnership due-diligence framework once that framework is made available in this repository, so this dashboard reflects the same process instead of inventing a parallel one.
 2. **Never let FreClean's status here drift ahead of its actual formal status** - this field should be updated by whoever owns the partnerships doc, not inferred from this dashboard.
 3. "Combined Reach (est.)" is currently a single manually-set number - replace with a computed sum once partner-level reach estimates are tracked per row, and clearly label it as an estimate either way.
 

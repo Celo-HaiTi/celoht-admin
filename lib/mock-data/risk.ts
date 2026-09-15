@@ -34,7 +34,7 @@ export function getRisks(): RiskItem[] {
   const cats: RiskItem["category"][] = ["Financial", "Operational", "Security", "Regulatory", "Reputational"];
   const sev: RiskItem["severity"][] = ["Critical", "High", "Medium", "Low"];
   const status: RiskItem["mitigationStatus"][] = ["Open", "Mitigating", "Mitigated"];
-  const owners = ["Maintainer Council", "Foundation Director", "Agent Network Lead", "Security Lead"];
+  const owners = ["Governance Council", "Foundation Director", "Agent Network Lead", "Security Lead"];
   return RISKS.map((title, i) => ({
     id: `MOCK-RSK-${1600 + i}`,
     title,

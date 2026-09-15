@@ -27,7 +27,7 @@ export function getRecentDisclosures() {
   const rand = seededRandom(61);
   const items = [
     "Published Phase 1 completion summary",
-    "Disclosed Maintainer Council seat change",
+    "Disclosed Governance Council seat change",
     "Posted monthly treasury snapshot",
     "Updated Security Policy changelog",
   ];

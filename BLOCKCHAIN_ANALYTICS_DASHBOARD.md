@@ -2,7 +2,7 @@
 
 **Path:** `src/app/(dashboard)/dashboard/blockchain-analytics/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Maintainer Council (read) · Foundation Director (read) · everyone else (read-only) - system-generated, no manual writes
+**Owners:** Governance Council (read) · Foundation Director (read) · everyone else (read-only) - system-generated, no manual writes
 
 ---
 

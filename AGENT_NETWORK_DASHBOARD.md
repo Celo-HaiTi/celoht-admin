@@ -2,7 +2,7 @@
 
 **Path:** `src/app/(dashboard)/dashboard/agent-network/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Community Contributors (read/write) · Maintainer Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
+**Owners:** Community Contributors (read/write) · Governance Council (read/write) · Foundation Director (read/write) · everyone else (read-only)
 
 ---
 

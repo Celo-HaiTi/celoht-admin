@@ -2,7 +2,7 @@
 
 **Path:** `src/app/(dashboard)/dashboard/donations/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Maintainer Council (read/write via ingestion) · Foundation Director (read/write) · everyone else (read-only)
+**Owners:** Governance Council (read/write via ingestion) · Foundation Director (read/write) · everyone else (read-only)
 
 ---
 

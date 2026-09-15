@@ -3,7 +3,7 @@
 Schema lives in `supabase/migrations/`:
 
 - `0001_init.sql` - tables: `profiles`, `treasury_transactions`, `donations`, `governance_proposals`, `audit_log`
-- `0002_rls.sql` - Row Level Security policies mapped to CeloHT's governance roles
+- `0002_rls.sql` - Row Level Security policies mapped to Celo-HaiTi's application roles within its governance model
 
 ## Setup
 

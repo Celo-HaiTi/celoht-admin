@@ -1,10 +1,10 @@
 # CeloHT Admin
 
-Operational admin dashboard for the CeloHT ecosystem. This repository provides the internal UI for treasury, governance, education, community, reforestation, and program reporting workflows.
+Operational admin dashboard for the Celo-HaiTi ecosystem. This repository provides the internal UI for treasury, governance, education, community, reforestation, and program reporting workflows.
 
-CeloHT is a community-governed financial-inclusion and blockchain-education initiative built on Celo. This repository is the admin platform used to review operational data and dashboard views, not a wallet, treasury custody layer, or smart-contract deployment system.
+Celo-HaiTi is a community-governed financial-inclusion and blockchain-education initiative built on Celo. Its Governance Council is the highest ongoing collective decision-making body. This repository is the admin platform used to review operational data and dashboard views, not a wallet, treasury custody layer, or smart-contract deployment system.
 
-> CeloHT does not currently define a native token, ICO, presale, or staking product in this repository. This app is an admin interface whose production dashboard routes fail closed until verified data providers are configured.
+> Celo-HaiTi does not currently define a native token, ICO, presale, or staking product in this repository. This app is an admin interface whose production dashboard routes fail closed until verified data providers are configured.
 
 ## Current status
 
@@ -49,7 +49,7 @@ unavailable provider.
 ## Data and production status
 
 Canonical provider contracts and provenance types are present, but the external
-CeloHT indexer, verified addresses, event definitions, and production evidence
+Celo-HaiTi indexer, verified addresses, event definitions, and production evidence
 sources are not configured in this repository. This project is **NOT
 PRODUCTION READY** and must not be represented as live financial, governance,
 impact, audit, or blockchain reporting.

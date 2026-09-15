@@ -2,7 +2,7 @@
 
 **Path:** `src/app/(dashboard)/dashboard/impact/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Maintainer Council (read) · Foundation Director (read) · everyone else (read-only)
+**Owners:** Governance Council (read) · Foundation Director (read) · everyone else (read-only)
 
 ---
 

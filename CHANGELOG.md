@@ -31,7 +31,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Design system (`src/app/globals.css`) - navy/gold token system derived from the CeloHT mark.
 - Shared component library: KpiCard, DataTable (search/sort/paginate/export), ExportMenu (CSV/XLSX/PDF), MockDataBanner, ComingSoon shell, chart wrappers.
 - Auth scaffold: Supabase email magic link + Valora wallet-connect stub, RBAC types, middleware guard.
-- Supabase schema + RLS policies (`supabase/migrations/`) mapped to CeloHT's governance chain.
+- Supabase schema + RLS policies (`supabase/migrations/`) mapped to the
+	application's documented access roles within Celo-HaiTi's governance model.
 - 5 dashboards fully built: Executive, Transparency, Governance, Treasury, Donations.
 - 18 remaining dashboards scaffolded with routing, nav, and a build-status shell.
 - CI (lint, typecheck, test, build, CodeQL), Dependabot, issue/PR templates.

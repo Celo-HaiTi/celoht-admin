@@ -1,5 +1,7 @@
--- Row Level Security - maps directly to CeloHT's governance chain:
--- Foundation Director → Maintainer Council → Community Contributors.
+-- Row Level Security - implements application access controls for roles that
+-- operate within Celo-HaiTi's governance model. The Governance Council is the
+-- highest ongoing collective decision-making body; these policies do not define
+-- a governance hierarchy.
 -- Everyone authenticated can read; writes are role-gated per table.
 
 alter table public.profiles enable row level security;
@@ -17,7 +19,9 @@ $$;
 create policy "profiles_select_authenticated" on public.profiles
   for select using (auth.role() = 'authenticated');
 
--- treasury: only council+director can read or write sensitive financial records.
+-- treasury: only the configured council/director roles can read or write
+-- sensitive financial records; this is an application access rule, not a
+-- statement of governance hierarchy.
 create policy "treasury_select_authenticated" on public.treasury_transactions
   for select using (public.current_role() in ('director', 'council'));
 create policy "treasury_write_council_up" on public.treasury_transactions
@@ -31,8 +35,9 @@ create policy "treasury_update_council_up" on public.treasury_transactions
 create policy "donations_select_authenticated" on public.donations
   for select using (auth.role() = 'authenticated');
 
--- governance: everyone authenticated reads; contributor+ can propose,
--- only council+director can change status (i.e. ratify a vote outcome).
+-- governance: everyone authenticated reads; contributor+ can propose, while
+-- only the configured council/director roles can change status. These are
+-- database permissions and do not define the project's governance authority.
 create policy "governance_select_authenticated" on public.governance_proposals
   for select using (auth.role() = 'authenticated');
 create policy "governance_insert_contributor_up" on public.governance_proposals

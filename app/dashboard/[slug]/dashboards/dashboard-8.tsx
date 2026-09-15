@@ -52,16 +52,20 @@ export default function GovernanceDashboard() {
         <CardHeader>
           <div>
             <CardTitle>Structure</CardTitle>
-            <CardDescription>CeloHT is community-governed, not founder-controlled</CardDescription>
+            <CardDescription>Governance Council-led collective decision-making</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap items-center gap-3 text-sm">
-            {["Foundation Director", "Maintainer Council", "Community Contributors"].map((step, i, arr) => (
-              <div key={step} className="flex items-center gap-3">
-                <span className="rounded-md border border-[--card-border] bg-[--muted-bg] px-3 py-1.5">{step}</span>
-                {i < arr.length - 1 && <span className="text-[--muted]">→</span>}
-              </div>
+            {[
+              "Governance Council: collective decisions",
+              "Maintainers: technical/project stewardship",
+              "Working Groups: scoped mandates",
+              "Contributors: project participation",
+            ].map((role) => (
+              <span key={role} className="rounded-md border border-[--card-border] bg-[--muted-bg] px-3 py-1.5">
+                {role}
+              </span>
             ))}
           </div>
         </CardContent>

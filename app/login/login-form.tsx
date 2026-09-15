@@ -10,7 +10,7 @@ import { toast } from "sonner";
 
 /**
  * Two sign-in paths, matching how CeloHT actually operates:
- *  - Email magic link, for Foundation Director / Maintainer Council members
+ *  - Email magic link, for operational administrators / Governance Council members
  *    who manage the platform day to day via Supabase Auth.
  *  - Wallet connect (Valora), for verifying on-chain roles without a
  *    separate password to manage - consistent with CeloHT's Celo-native,
@@ -112,7 +112,7 @@ export default function LoginPage() {
         </Button>
 
         <p className="text-navy-100/40 mt-6 text-center text-[11px]">
-          Access is limited to Foundation Director, Maintainer Council, and approved
+          Access is limited to operational administrators, Governance Council, and approved
           Community Contributors.
         </p>
       </div>

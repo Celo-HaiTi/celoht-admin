@@ -1,8 +1,7 @@
 import { seededRandom, seededRange } from "./seed";
 
-/** MOCK_GOVERNANCE_DATA - seeded placeholder proposals, matching
- *  CeloHT's real structure: Foundation Director → Maintainer Council →
- *  Community Contributors. */
+/** MOCK_GOVERNANCE_DATA - seeded placeholder proposals. Application roles
+ *  describe access to this dashboard, not a governance hierarchy. */
 export interface Proposal {
   id: string;
   title: string;
@@ -35,7 +34,7 @@ export function getProposals(): Proposal[] {
     return {
       id: `MOCK-GOV-${100 + i}`,
       title,
-      proposer: i % 2 === 0 ? "Maintainer Council" : "Community Contributor",
+      proposer: i % 2 === 0 ? "Governance Council" : "Community Contributor",
       status: statuses[seededRange(rand, 0, 3)]!,
       votesFor,
       votesAgainst,

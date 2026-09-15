@@ -2,7 +2,7 @@
 
 **Path:** `src/app/(dashboard)/dashboard/audit/page.tsx`
 **Status:** ✅ Built · 🚧 Mock data by default - see [Data source](#data-source)
-**Owners:** Maintainer Council (read) · Foundation Director (read) - restricted; not visible to Contributors or general Viewers
+**Owners:** Governance Council (read) · Foundation Director (read) - restricted; not visible to Contributors or general Viewers
 
 ---
 
